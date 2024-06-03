@@ -4,104 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create a Group</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .banner {
-            width: 100%;
-            height: 300px; /* Adjust height as needed */
-            background-image: url(''); /* Replace with your banner image URL */
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
+    
     <script>
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
             section.style.display = section.style.display === 'none' ? 'block' : 'none';
         }
     </script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            cursor: pointer;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .field {
-            margin-bottom: 15px;
-        }
-
-        label {
-            margin-bottom: 5px;
-            font-size: 1em;
-        }
-
-        input[type="text"], input[type="date"], input[type="file"] {
-            padding: 10px;
-            font-size: 1em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        input[type="submit"] {
-            padding: 10px 20px;
-            font-size: 1em;
-            border: none;
-            border-radius: 4px;
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-        #error_explanation {
-            color: red;
-            margin-bottom: 15px;
-        }
-
-        #error_list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            font-size: 0.9em;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
-        <h1 onclick="toggleSection('createGroupSection')">Create a Group</h1>
+        <a  class="icon-button" onclick="toggleSection('createGroupSection')"><i class="fas fa-users"></i></a>
+        <a  class="icon-button" onclick="toggleSection('addDocumentSection')"><i class="fas fa-file-alt"></i></a>
+
         <div id="createGroupSection">
             <form action="/submit-group" method="POST" enctype="multipart/form-data">
                 <div class="field">
@@ -125,7 +41,6 @@
             </form>
         </div>
 
-        <h1 onclick="toggleSection('addDocumentSection')">Add a Document</h1>
         <div id="addDocumentSection" style="display: none;">
             <form action="/submit-document" method="POST" enctype="multipart/form-data">
                 <div id="error_explanation">
@@ -162,11 +77,23 @@
                     <input type="text" id="comment" name="comment" required>
                 </div>
 
+                <div class="field">
+                    <label for="photo">Upload Photo:</label>
+                    <input type="file" id="photo" name="photo" accept="image/*" required>
+                </div>
+
                 <div class="actions">
                     <input type="submit" value="Add Document">
                 </div>
             </form>
         </div>
     </div>
+
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.style.display = section.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
 </body>
 </html>
