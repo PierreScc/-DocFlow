@@ -1,4 +1,5 @@
 import { Application } from "@hotwired/stimulus"
+import { faker } from '@faker-js/faker';
 
 const application = Application.start()
 
