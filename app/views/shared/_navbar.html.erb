@@ -1,55 +1,31 @@
-<style>
-        .navbar-lewagon {
-            background-color: rgba(255, 255, 255, 0.7); /* Adjust transparency here */
-        }
-
-        .navbar-brand .brand-image {
-            max-height: 50px;
-        }
-
-        .avatar {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-        }
-    </style>
-</head>
 <body>
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-bottom">
         <div class="container-fluid">
-            <a href="#" class="navbar-brand">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsrfvuEN0UL-T0ElKhFTchxV_FW4yXYfl3y66FsCUVIH6PKlHkhX9Ku9sPIoa1q7yhOTo&usqp=CAU" class="brand-image" alt="Brand Image">
-            </a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto">
-                    <% if user_signed_in? %>
-                        <li class="nav-item active">
-                            <%= link_to "Home", "#", class: "nav-link" %>
-                        </li>
-                        <li class="nav-item">
-                            <%= link_to "Messages", "#", class: "nav-link" %>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="avatar" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="https://cdn-icons-png.flaticon.com/512/10275/10275824.png" class="avatar" alt="Dropdown Menu">
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <%= link_to "Action", "#", class: "dropdown-item" %>
-                                <%= link_to "Another action", "#", class: "dropdown-item" %>
-                                <%= link_to "Log out", destroy_user_session_path, data: { method: :delete }, class: "dropdown-item" %>
-                            </div>
-                        </li>
-                    <% else %>
-                        <li class="nav-item">
-                            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-                        </li>
-                    <% end %>
-                </ul>
-            </div>
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-house-door"></i> <!-- Home Icon -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-folder"></i> <!-- Folder Icon -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-plus-circle"></i> <!-- Add Icon -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-chat-dots"></i> <!-- Chat Icon -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/10275/10275824.png" class="avatar" alt="User Avatar">
+                </li>
+            </ul>
         </div>
-    </div>
+    </nav>
+</body>
