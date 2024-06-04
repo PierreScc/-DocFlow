@@ -6,18 +6,11 @@
     <title>Create a Group</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
 
-    <script>
-        function toggleSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            section.style.display = section.style.display === 'none' ? 'block' : 'none';
-        }
-    </script>
+    <img class="w3-image" src="https://img.freepik.com/premium-vector/cloud-file-server-data-transfer-concept-3d-cute-icon-yellow-folder-with-page-document_22052-4074.jpg" alt="" width="400" height="400">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+  </div>
 </head>
 
-<div class= "container">
-  <div class="banner">
-  </div>
-</div>
 <body>
         <a  class="icon-button" onclick="toggleSection('createGroupSection')"><i class="fa-solid fa-people-group"></i></a>
 
@@ -42,9 +35,15 @@
                     <input type="submit" value="Create Group">
                 </div>
             </form>
+
         </div>
 
-
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.style.display = section.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
 
 
         <a  class="icon-button" onclick="toggleSection('addDocumentSection')"><i class="fa-solid fa-file-circle-plus"></i></a>
@@ -94,6 +93,7 @@
                     <input type="submit" value="Add Document">
                 </div>
             </form>
+
         </div>
 
     <script>
