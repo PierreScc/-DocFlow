@@ -10,40 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_04_095121) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_04_111457) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "assignements", force: :cascade do |t|
-    t.string "user_id"
-    t.string "document_id"
+    t.bigint "user_id", null: false
+    t.bigint "document_id", null: false
     t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["document_id"], name: "index_assignements_on_document_id"
+    t.index ["user_id"], name: "index_assignements_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string "user_id"
-    t.string "document_id"
+    t.bigint "user_id", null: false
+    t.bigint "document_id", null: false
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["document_id"], name: "index_comments_on_document_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "documents", force: :cascade do |t|
     t.string "title"
-    t.string "user_id"
     t.string "category"
     t.date "date"
     t.date "deadline"
     t.string "comment"
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "group_id", null: false
     t.index ["group_id"], name: "index_documents_on_group_id"
+    t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string "document_id"
     t.string "title"
     t.string "category"
     t.datetime "created_at", null: false
@@ -51,18 +56,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_095121) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string "user_id"
-    t.string "group_id"
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "content"
+    t.index ["group_id"], name: "index_messages_on_group_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "user_groups", force: :cascade do |t|
-    t.string "user_id"
-    t.string "group_id"
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_user_groups_on_group_id"
+    t.index ["user_id"], name: "index_user_groups_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -78,5 +87,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_095121) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assignements", "documents"
+  add_foreign_key "assignements", "users"
+  add_foreign_key "comments", "documents"
+  add_foreign_key "comments", "users"
   add_foreign_key "documents", "groups"
+  add_foreign_key "documents", "users"
+  add_foreign_key "messages", "groups"
+  add_foreign_key "messages", "users"
+  add_foreign_key "user_groups", "groups"
+  add_foreign_key "user_groups", "users"
 end
