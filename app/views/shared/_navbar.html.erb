@@ -1,8 +1,56 @@
+
+
 <div class="navbar">
   <a href="#home" class="active"><i class="fa-solid fa-house"></i></a>
-  <a href="#Documents"><i class="fa-solid fa-file-circle-plus"></i></a>
-  <a href="#Add"><i class="fa-solid fa-plus"></i></a>
-  <a href="#Chat"><i class="fa-brands fa-rocketchat"></i></a>
-  <a href="#Profil"><i class="fa-solid fa-user"></i></a>
+  <a href="#Documents"><i class="fa-regular fa-folder-open"></i></a>
+
+
+
+  <a href="#Add" class="icon-button" onclick="toggleSection('addDocumentSection')"><i class="fa-solid fa-plus"></i></a>
+
+          <div id="addDocumentSection" class="popup-container">
+                            <h2>Add Document</h2>
+
+              <form action="/submit-document" method="POST" enctype="multipart/form-data">
+                  <div id="error_explanation">
+                      <ul id="error_list"></ul>
+                  </div>
+
+                  <div class="field">
+                      <label for="title">Title</label>
+                      <input type="text" id="title" name="title" required>
+                  </div>
+
+                  <div class="field">
+                      <label for="category">Category</label>
+                      <input type="text" id="category" name="category" required>
+                  </div>
+
+                  <div class="field">
+                      <label for="comment">Comment</label>
+                      <input type="text" id="comment" name="comment" required>
+                  </div>
+
+                  <div class="field">
+                      <label for="photo">Upload Photo</label>
+                      <input type="file" id="photo" name="photo" accept="image/*" required>
+                  </div>
+
+                  <div class="actions" >
+                      <input type="submit" value="Done">
+                  </div>
+              </form>
+          </div>
+
+          <script>
+              function toggleSection(sectionId) {
+                  const section = document.getElementById(sectionId);
+                  section.style.display = section.style.display === 'none' ? 'block' : 'none';
+              }
+          </script>
+
+
+  <a href="#Chat"><i class="fa-regular fa-comment"></i></a>
+  <a href="#Profil"><i class="fa-regular fa-user"></i></a>
 
 </div>
