@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #C89BF1, #d3d4d4);
+  background: #ffffffff;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -19,24 +19,6 @@ body {
   text-align: center; /* Center the text inside the container */
 }
 
-.banner {
-  background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fcomputer-pastel&psig=AOvVaw189Q3ljIl2v3Fd6KPXmCrG&ust=1717583337104000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLDluPHewYYDFQAAAAAdAAAAABAJ') no-repeat center center;
-  background-size: cover;
-  color: rgba(255, 255, 255, 0);
-  padding: 50px 20px;
-  border-radius: 15px;
-}
-.container {
-  width: 300px;
-  margin: 20 auto;
-  border-radius:25px;
-  padding: 20px;
-  padding-top: 20px;
-  background-color: rgba(255, 255, 255, 0.439);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-
-}
 
 h1 {
   text-align: center;
@@ -75,14 +57,15 @@ input[type="submit"] {
   font-size: 1em;
   border: none;
   border-radius: 15px;
-  background-color: #4CAF50;
+  background-color: #954caf;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: #954caf;
+  font-size: larger;
 }
 
 #error_explanation {
