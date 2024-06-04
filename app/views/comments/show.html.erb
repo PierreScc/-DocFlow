@@ -1,0 +1,11 @@
+<h1>Comment Detail</h1>
+<div>
+  <h3>Comment ##<%= @comment.id %></h3>
+  <p>User: <%= @comment.user.username %></p>
+  <p>Document: <%= @comment.document.title %></p>
+  <p>Content: <%= @comment.content %></p>
+  <p>Created at: <%= @comment.created_at %></p>
+  <p>Updated at: <%= @comment.updated_at %></p>
+</div>
+<%= link_to 'Edit', edit_document_comment_path(@comment.document, @comment) %> |
+<%= link_to 'Back', document_comments_path(@comment.document) %>
