@@ -1,0 +1,12 @@
+<!-- app/views/documents/index.html.erb -->
+
+<h1>Documents</h1>
+<% @documents.each do |document| %>
+  <div>
+    <h3><%= link_to document.title, document_path(document) %></h3>
+    <p>Category: <%= document.category %></p>
+    <p>Date: <%= document.date %></p>
+    <p>Deadline: <%= document.deadline %></p>
+    <p>Comment: <%= document.comment %></p>
+  </div>
+<% end %>
