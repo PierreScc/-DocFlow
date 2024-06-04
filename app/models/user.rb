@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
+  has_many_attached :photos
   # documents que t'as créé
   has_many :documents, dependent: :destroy
   has_many :comments, dependent: :destroy

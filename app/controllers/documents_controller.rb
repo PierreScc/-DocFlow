@@ -44,6 +44,6 @@ class DocumentsController < ApplicationController
   end
 
   def document_params
-    params.require(:document).permit(:title, :user_id, :category, :date, :deadline, :comment)
+    params.require(:document).permit(:title, :user_id, :category, :comment, :photo)
   end
 end

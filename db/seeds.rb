@@ -1,4 +1,6 @@
 require 'faker'
+require 'cloudinary'
+require 'cloudinary/uploader'
 
 puts "Cleaning database..."
 User.destroy_all
@@ -49,6 +51,7 @@ puts "Creating documents..."
     title: Faker::Book.title,
     category: "Company"
   )
+
   group = Group.all.sample
   document.group = group
   document.user = group.users.sample
