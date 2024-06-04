@@ -1,0 +1,11 @@
+<h1>Comments</h1>
+<% @comments.each do |comment| %>
+  <div>
+    <h3><%= link_to "Comment ##{comment.id}", document_comment_path(comment.document, comment) %></h3>
+    <p>User: <%= comment.user.username %></p>
+    <p>Document: <%= comment.document.title %></p>
+    <p>Content: <%= comment.content %></p>
+    <p>Created at: <%= comment.created_at %></p>
+    <p>Updated at: <%= comment.updated_at %></p>
+  </div>
+<% end %>

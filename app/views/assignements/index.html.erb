@@ -1,0 +1,11 @@
+<h1>Assignments</h1>
+<% @assignements.each do |assignement| %>
+  <div>
+    <h3><%= link_to "Assignment ##{assignement.id}", document_assignement_path(assignement.document, assignement) %></h3>
+    <p>User: <%= assignement.user.username %></p>
+    <p>Document: <%= assignement.document.title %></p>
+    <p>Comment: <%= assignement.comment %></p>
+    <p>Created at: <%= assignement.created_at %></p>
+    <p>Updated at: <%= assignement.updated_at %></p>
+  </div>
+<% end %>

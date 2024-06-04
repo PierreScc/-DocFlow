@@ -1,0 +1,11 @@
+<h1>Assignment Detail</h1>
+<div>
+  <h3>Assignment ##<%= @assignement.id %></h3>
+  <p>User: <%= @assignement.user.username %></p>
+  <p>Document: <%= @assignement.document.title %></p>
+  <p>Comment: <%= @assignement.comment %></p>
+  <p>Created at: <%= @assignement.created_at %></p>
+  <p>Updated at: <%= @assignement.updated_at %></p>
+</div>
+<%= link_to 'Edit', edit_document_assignement_path(@assignement.document, @assignement) %> |
+<%= link_to 'Back', document_assignements_path(@assignement.document) %>
