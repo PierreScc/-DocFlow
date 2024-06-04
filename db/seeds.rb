@@ -28,17 +28,14 @@ User.create(email: "Pierre@test.com", password: "123456", username: "Pierre")
     title: Faker::Company.department,
     category: "Company"
   )
-  group.user = User.all.sample
   group.save!
-end
 
-5.times do
   user_group = UserGroup.new(
     user: User.all.sample,
-    group: Group.all.sample
+    group: group
   )
   user_group.save!
-end 
+end
 
 5.times do
   document = Document.new(
