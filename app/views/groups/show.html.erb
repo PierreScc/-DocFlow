@@ -1,0 +1,35 @@
+<!-- app/views/groups/show.html.erb -->
+
+<h1><%= @group.title %></h1>
+<p>Category: <%= @group.category %></p>
+
+<h2>Documents</h2>
+<% @documents.each do |document| %>
+  <div>
+    <h3><%= link_to document.title, document_path(document) %></h3>
+    <p>Category: <%= document.category %></p>
+    <p>Date: <%= document.date %></p>
+    <p>Deadline: <%= document.deadline %></p>
+    <p>Comment: <%= document.comment %></p>
+  </div>
+<% end %>
+
+<h2>Messages</h2>
+<% @messages.each do |message| %>
+  <div>
+    <p><%= message.content %></p>
+    <p>Posted by: <%= message.user.username %></p>
+    <p>At: <%= message.created_at %></p>
+  </div>
+<% end %>
+
+<h2>Add a New Message</h2>
+<%= form_for [@group, @group.messages.new] do |f| %>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+  <div>
+    <%= f.submit "Post Message" %>
+  </div>
+<% end %>
