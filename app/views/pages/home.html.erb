@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create a Group</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
-    
+
     <script>
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
@@ -13,10 +13,13 @@
         }
     </script>
 </head>
+
+<div class= "container">
+  <div class="banner">
+  </div>
+</div>
 <body>
-    <div class="container">
-        <a  class="icon-button" onclick="toggleSection('createGroupSection')"><i class="fas fa-users"></i></a>
-        <a  class="icon-button" onclick="toggleSection('addDocumentSection')"><i class="fas fa-file-alt"></i></a>
+        <a  class="icon-button" onclick="toggleSection('createGroupSection')"><i class="fa-solid fa-people-group"></i></a>
 
         <div id="createGroupSection">
             <form action="/submit-group" method="POST" enctype="multipart/form-data">
@@ -40,6 +43,11 @@
                 </div>
             </form>
         </div>
+
+
+
+
+        <a  class="icon-button" onclick="toggleSection('addDocumentSection')"><i class="fa-solid fa-file-circle-plus"></i></a>
 
         <div id="addDocumentSection" style="display: none;">
             <form action="/submit-document" method="POST" enctype="multipart/form-data">
@@ -87,7 +95,6 @@
                 </div>
             </form>
         </div>
-    </div>
 
     <script>
         function toggleSection(sectionId) {
@@ -97,4 +104,3 @@
     </script>
 </body>
 </html>
-

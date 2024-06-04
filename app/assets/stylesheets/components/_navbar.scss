@@ -1,13 +1,33 @@
-.navbar-lewagon {
-  background-color: rgba(42, 79, 125, 0.282); /* Adjust transparency here */
+.navbar {
+  background-color: #ca30b031;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 0;
 }
 
-.navbar-brand .brand-image {
-  max-height: 20px;
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
-.avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+.navbar a.active {
+  background-color: #6501514b;
+  border-radius: 50px;
+}
+
+.navbar i {
+  color: rgb(54, 0, 52);
+  font-size: 24px;
+}
+
+.navbar a[href="#Add"] i {
+  font-size: 45px;
+  color: rgb(107, 148, 219);
 }

@@ -1,24 +1,41 @@
 // Specific CSS for your home-page
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom, #C89BF1, #2B83E2); /* Gradient background */
-  display: flex;
+  background: linear-gradient(to bottom, #C89BF1, #d3d4d4);
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 25px;
+  padding: 20px;
+  padding-top: 80px; /* Add padding-top to compensate for the navbar height */
+  background-color: rgba(255, 255, 255, 0.439); /* Adjust background color and opacity */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  text-align: center; /* Center the text inside the container */
+}
 
+.banner {
+  background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fcomputer-pastel&psig=AOvVaw189Q3ljIl2v3Fd6KPXmCrG&ust=1717583337104000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLDluPHewYYDFQAAAAAdAAAAABAJ') no-repeat center center;
+  background-size: cover;
+  color: rgba(255, 255, 255, 0);
+  padding: 50px 20px;
+  border-radius: 15px;
+}
 .container {
   width: 300px;
   margin: 20 auto;
   border-radius:25px;
   padding: 20px;
-  padding-top: 80px; /* Add padding-top to compensate for the navbar height */
-  background-color: rgba(255, 255, 255, 0.8); /* Adjust background color and opacity */
+  padding-top: 20px;
+  background-color: rgba(255, 255, 255, 0.439);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+
 }
 
 h1 {
