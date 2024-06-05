@@ -1,52 +1,48 @@
+<!-- app/views/pages/home.html.erb -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <title>Home - DocFlow</title>
 </head>
-
 <body>
   <div>
-    <%= image_tag "home-image.png", alt: "DocFlow", width: 440, height: 300, class:"image"%>
+    <%= image_tag "home-image.png", alt: "DocFlow", width: 440, height: 300, class: "image" %>
   </div>
 
-  <div class= menu_create>
+  <div class="menu_create">
     <a href="#createGroupSection" class="icon-button" onclick="toggleSection('createGroupSection')"><i class="fa-solid fa-person-circle-plus"></i></a>
 
-        <div id="createGroupSection">
-                <h2>Create Group</h2>
-
-            <form action="/submit-group" method="POST" enctype="multipart/form-data">
-
-                <div class="field">
-                    <label for="title">Title</label>
-                    <input type="text" id="title" name="title" required>
-                </div>
-
-                <div class="field">
-                    <label for="category">Category</label>
-                    <input type="text" id="category" name="category" required>
-                </div>
-
-                <div class="actions">
-                    <input type="submit" value="Done">
-                </div>
-            </form>
-
+    <div id="createGroupSection" class="popup-container">
+      <h2>Create Group</h2>
+      <%= form_with url: submit_group_path, local: true, html: { enctype: "multipart/form-data" } do |form| %>
+        <div class="field">
+          <%= form.label :title %>
+          <%= form.text_field :title %>
         </div>
+        <div class="field">
+          <%= form.label :category %>
+          <%= form.text_field :category %>
+        </div>
+        <div class="actions">
+          <%= form.submit "Done" %>
+        </div>
+      <% end %>
+    </div>
 
     <script>
-        function toggleSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            section.style.display = section.style.display === 'none' ? 'block' : 'none';
-        }
+      function toggleSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        section.style.display = section.style.display === 'none' ? 'block' : 'none';
+      }
     </script>
   </div>
-
 </body>
 </html>
 
 
-changer les forms en stimulus, utliser la doc du cours 
+
+
+changer les forms en stimulus, utliser la doc du cours

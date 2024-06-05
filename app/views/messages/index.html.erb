@@ -1,11 +1,14 @@
+<!-- app/views/messages/index.html.erb -->
 <h1>Messages</h1>
-<% @messages.each do |message| %>
-  <div>
-    <h3><%= link_to "Message ##{message.id}", group_message_path(message.group, message) %></h3>
-    <p>User: <%= message.user.username %></p>
-    <p>Group: <%= message.group.title %></p>
-    <p>Content: <%= message.content %></p>
-    <p>Created at: <%= message.created_at %></p>
-    <p>Updated at: <%= message.updated_at %></p>
-  </div>
-<% end %>
+
+<ul>
+  <% @messages.each do |message| %>
+    <li>
+      <p><strong>User:</strong> <%= message.user.username %></p>
+      <p><strong>Group:</strong> <%= message.group.title %></p>
+      <p><strong>Content:</strong> <%= message.content %></p>
+      <%= link_to 'Show', message_path(message) %>
+    </li>
+  <% end %>
+</ul>
+
