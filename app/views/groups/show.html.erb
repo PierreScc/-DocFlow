@@ -1,7 +1,11 @@
-<h1>Group Detail</h1>
-<div>
-  <h3><%= @group.title %></h3>
-  <p>Category: <%= @group.category %></p>
+<h1><%= @group.title %></h1>
+
+<div class="messages">
+  <% @messages.each do |message| %>
+    <div class="message">
+      <strong><%= message.user.username %>:</strong>
+      <%= message.content %>
+    </div>
+  <% end %>
 </div>
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+
