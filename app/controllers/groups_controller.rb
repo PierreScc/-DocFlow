@@ -7,9 +7,8 @@ class GroupsController < ApplicationController
   end
 
   def show
-    if @group.nil?
-      redirect_to groups_path, alert: "Group not found"
-    end
+    @messages = @group.messages.order(created_at: :asc)
+    @message = Message.new
   end
 
   def create
