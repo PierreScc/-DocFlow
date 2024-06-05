@@ -14,12 +14,14 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
-    @message.user = @user
+    @group = Group.find(params[:group_id])
+    @message = @group.messages.build(message_params)
+    @message.user = current_user
     if @message.save
-      redirect_to message_path(@message), notice: "Message was successfully created."
+      redirect_to group_path(@group)
     else
-      render :new, status: :unprocessable_entity
+      @messages = @group.messages.order(created_at: :asc)
+      render 'groups/show'
     end
   end
 
