@@ -4,23 +4,22 @@ Rails.application.routes.draw do
 
   get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :groups, only: [:index, :show, :new, :edit, :update, :destroy, :create] do
+  resources :groups, only: [:index, :show, :new, :destroy, :create] do
     resources :documents, only: [:show]
-    resources :messages, only: [:index, :create, :show]
-    resources :user_groups, only: [:create]
+    resources :messages, only: [:create]
   end
 
-  resources :documents, only: [:index, :destroy] do
+  resources :documents, only: [:destroy, :create] do
     resources :comments, only: [:create]
     resources :assignements, only: [:new, :create]
   end
 
   resources :users, only: [:show, :edit, :update]
-
   resources :messages, only: [:index]
+  resources :groups
+  resources :assignments, only: [:index, :show, :edit, :update, :destroy]
 
   # Route pour le formulaire de soumission de groupe
   get 'submit-group', to: 'groups#new', as: 'submit_group'
   post 'submit-group', to: 'groups#create'
 end
-

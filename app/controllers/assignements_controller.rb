@@ -13,17 +13,17 @@ class AssignementsController < ApplicationController
   end
 
   def new
-    @assignement = Assignement.new
+    @assignment = @document.assignments.new
+    @users = User.all
   end
 
   def create
-    @assignement = Assignement.new(assignement_params)
-    @assignement.document = @document
-    @assignement.user = current_user
-    if @assignement.save
-      redirect_to document_path(@document), notice: "Assignement was successfully created."
+    @assignment = @document.assignments.new(assignment_params)
+    if @assignment.save
+      redirect_to document_path(@document), notice: 'Assignment was successfully created.'
     else
-      render :new, status: :unprocessable_entity
+      @users = User.all
+      render :new
     end
   end
 
