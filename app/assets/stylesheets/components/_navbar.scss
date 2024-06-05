@@ -12,12 +12,14 @@ body {
 .icon-button {
   text-decoration: none;
   color: inherit;
-  font-size: 2em; /* Adjust the size as needed */
+  font-size: 2em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
 .popup-container {
   position: fixed;
-  bottom: 100px; /* Adjust this to fit above the navbar */
+  bottom: 100px;
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
@@ -44,6 +46,8 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
 .navbar a {
@@ -53,6 +57,8 @@ body {
   padding: 10px;
   text-decoration: none;
   font-size: 17px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
 .navbar a.active {
@@ -63,9 +69,13 @@ body {
 .navbar i {
   color: rgb(54, 0, 52);
   font-size: 24px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
 .navbar a[href="#Add"] i {
   font-size: 45px;
   color: rgb(107, 148, 219);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
