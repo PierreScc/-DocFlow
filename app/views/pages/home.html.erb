@@ -15,38 +15,16 @@
   <div class= menu_create>
     <a href="#createGroupSection" class="icon-button" onclick="toggleSection('createGroupSection')"><i class="fa-solid fa-person-circle-plus"></i></a>
 
-        <div id="createGroupSection">
-                <h2>Create Group</h2>
-
-            <form action="/submit-group" method="POST" enctype="multipart/form-data">
-
-                <div class="field">
-                    <label for="title">Title</label>
-                    <input type="text" id="title" name="title" required>
-                </div>
-
-                <div class="field">
-                    <label for="category">Category</label>
-                    <input type="text" id="category" name="category" required>
-                </div>
-
-                <div class="actions">
-                    <input type="submit" value="Done">
-                </div>
-            </form>
-
+      <div id="createGroupSection"class="popup-container">
+        <h2>Create Group</h2>
+          <%= simple_form_for Group.new do |f| %>
+            <%= f.input :title %>
+            <%= f.input :category %>
+            <%= f.button :submit %>
+          <% end %>
         </div>
 
-    <script>
-        function toggleSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            section.style.display = section.style.display === 'none' ? 'block' : 'none';
-        }
-    </script>
   </div>
 
 </body>
 </html>
-
-
-changer les forms en stimulus, utliser la doc du cours 
