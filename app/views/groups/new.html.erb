@@ -25,5 +25,11 @@
     <%= form.submit %>
   </div>
 <% end %>
+<%= simple_form_for(document) do |f| %>
+  <%= f.input :photo, as: :file %>
+  <%= f.input :title %>
+  <%= f.input :category%>
+<% end %>
+
 
 <%= link_to 'Back', groups_path %>
