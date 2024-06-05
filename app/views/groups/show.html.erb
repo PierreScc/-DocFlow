@@ -9,10 +9,3 @@
   <% end %>
 </div>
 
-<%= form_with(model: [@group, @message], local: true) do |f| %>
-  <div class="form-group">
-    <%= f.label :content %>
-    <%= f.text_area :content, class: "form-control" %>
-  </div>
-  <%= f.submit "Send", class: "btn btn-primary" %>
-<% end %>
