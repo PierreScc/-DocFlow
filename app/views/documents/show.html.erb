@@ -1,13 +1,15 @@
 <h1>Document Detail</h1>
 <div>
-<div class="avatar"
-  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @document.photo.key, height: 300, crop: :fill %>')">
-</div>
+  <div class="h-40"
+    style="
+      background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @document.photo.key, height: 300, crop: :fill %>');
+      height: 20vh">
+  </div>
   <h3><%= @document.title %></h3>
   <p>Category: <%= @document.category %></p>
   <p>Comment: <%= @document.comment %></p>
   <p>User: <%= @document.user.username %></p>
   <p>Group: <%= @document.group.title %></p>
 </div>
-<%= link_to 'Edit', edit_document_path(@document) %> |
+
 <%= link_to 'Back', documents_path %>

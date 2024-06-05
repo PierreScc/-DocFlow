@@ -8,38 +8,16 @@
 
   <a href="#Add" class="icon-button" onclick="toggleSection('addDocumentSection')"><i class="fa-solid fa-plus"></i></a>
 
-          <div id="addDocumentSection" class="popup-container">
-                            <h2>Add Document</h2>
-
-              <form action="/submit-document" method="POST" enctype="multipart/form-data">
-                  <div id="error_explanation">
-                      <ul id="error_list"></ul>
-                  </div>
-
-                  <div class="field">
-                      <label for="title">Title</label>
-                      <input type="text" id="title" name="title" required>
-                  </div>
-
-                  <div class="field">
-                      <label for="category">Category</label>
-                      <input type="text" id="category" name="category" required>
-                  </div>
-
-                  <div class="field">
-                      <label for="comment">Comment</label>
-                      <input type="text" id="comment" name="comment" required>
-                  </div>
-
-                  <div class="field">
-                      <label for="photo">Upload Photo</label>
-                      <input type="file" id="photo" name="photo" accept="image/*" required>
-                  </div>
-
-                  <div class="actions" >
-                      <input type="submit" value="Done">
-                  </div>
-              </form>
+  <div id="addDocumentSection" class="popup-container">
+    <h2>Add Document</h2>
+      <%= simple_form_for Document.new do |f| %>
+        <%= f.input :photo, as: :file %>
+        <%= f.input :title %>
+        <%= f.input :category %>
+        <%= f.input :comment %>
+        <%= f.association :group %>
+        <%= f.button :submit %>
+      <% end %>
           </div>
 
           <script>

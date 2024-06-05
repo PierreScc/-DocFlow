@@ -1,5 +1,5 @@
 class DocumentsController < ApplicationController
-  before_action :set_document, only: [:show, :edit, :update, :destroy, :create, :new]
+  before_action :set_document, only: [:show, :edit, :update, :destroy]
 
   def index
     @documents = Document.all
@@ -14,8 +14,8 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     @document.user = current_user
-    if @document.save
-      redirect_to document_path(@document), notice: "Document was successfully created."
+    if @document.save!
+      redirect_to group_document_path(@document.group, @document), notice: "Document was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -44,6 +44,6 @@ class DocumentsController < ApplicationController
   end
 
   def document_params
-    params.require(:document).permit(:title, :user_id, :category, :comment, :photo)
+    params.require(:document).permit(:title, :group_id, :category, :comment, :photo)
   end
 end
