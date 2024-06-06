@@ -11,6 +11,10 @@ class DocumentsController < ApplicationController
     end
   end
 
+  def new
+    @document = @group.documents.build
+  end
+
   def create
     @document = Document.new(document_params)
     @document.user = current_user
