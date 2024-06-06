@@ -13,14 +13,15 @@ class AssignementsController < ApplicationController
   end
 
   def new
-    @assignment = @document.assignments.new
+    @assignment = @document.assignements.new
     @users = User.all
   end
 
   def create
-    @assignment = @document.assignments.new(assignment_params)
-    if @assignment.save
-      redirect_to document_path(@document), notice: 'Assignment was successfully created.'
+    @assignement = @document.assignements.new(assignement_params)
+    @group = @document.group
+    if @assignement.save
+      redirect_to group_document_path(@group, @document), notice: 'Assignement was successfully created.'
     else
       @users = User.all
       render :new
