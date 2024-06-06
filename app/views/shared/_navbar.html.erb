@@ -1,5 +1,5 @@
 <!-- app/views/shared/_navbar.html.erb -->
-<div class="navbar">
+<div class="navbar" data-controller="navbar">
   <%= link_to root_path, class: 'active' do %>
     <i class="fa-solid fa-house"></i>
   <% end %>
@@ -8,23 +8,22 @@
     <i class="fa-regular fa-folder-open"></i>
   <% end %>
 
-  <a href="#Add" class="icon-button" onclick="toggleSection('addDocumentSection')">
+
+  <a class="icon-button" data-action="click->navbar#reveal" >
     <i class="fa-solid fa-plus"></i>
   </a>
-
-  <div id="addDocumentSection" class="popup-container">
-    <h2>Add Document</h2>
-    <%= simple_form_for Document.new do |f| %>
-      <%= f.input :photo, as: :file %>
-      <%= f.input :title %>
-      <%= f.input :category %>
-      <%= f.input :comment %>
-      <%= f.association :group %>
-      <%= f.button :submit %>
-    <% end %>
+  <div id="addDocumentSection" class="d-none" data-navbar-target="form">
+      <h2>Add Document</h2>
+      <%= simple_form_for Document.new do |f| %>
+        <%= f.input :photo, as: :file %>
+        <%= f.input :title %>
+        <%= f.input :category %>
+        <%= f.input :comment %>
+        <%= f.association :group %>
+        <%= f.button :submit %>
+      <% end %>
   </div>
 
- 
 
   <%= link_to messages_path do %>
     <i class="fa-regular fa-comment"></i>
