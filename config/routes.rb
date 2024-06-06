@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
-  resources :documents, only: [:destroy, :create] do
+  resources :documents, only: [:destroy, :create, :index] do
     resources :comments, only: [:create]
     resources :assignements, only: [:new, :create]
   end
