@@ -1,10 +1,12 @@
 <h1>Members</h1>
 <% @group.users.each do |user| %>
+<div class="card" justify-content: space-between  >
   <div class="member">
     <% if user.photo.attached? %>
       <%= image_tag url_for(user.photo), class: "avatar", alt: "avatar" %>
     <% end %>
     <p><%= user.username %></p>
+</div>
   </div>
 <% end %>
 
@@ -13,7 +15,8 @@
   Add members
 </button>
 
-<!-- Modal -->
+<a href="/groups" class="btn btn-primary">Back</a>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
