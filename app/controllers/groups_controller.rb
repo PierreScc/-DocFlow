@@ -1,6 +1,5 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:new, :create, :edit, :update]
 
   def index
     @groups = Group.all
@@ -14,8 +13,8 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    @group.user = @user
     if @group.save
+      UserGroup.create!(user: current_user, group: @group)
       redirect_to group_path(@group), notice: "Group was successfully created."
     else
       render :new, status: :unprocessable_entity
@@ -44,11 +43,8 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
-  def set_user
-    @user = User.find(params[:user_id])
-  end
 
   def group_params
-    params.require(:group).permit(:title, :document_id, :category)
+    params.require(:group).permit(:title, :photo, :category)
   end
 end

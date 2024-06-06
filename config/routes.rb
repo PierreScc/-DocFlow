@@ -6,19 +6,14 @@ Rails.application.routes.draw do
 
   resources :groups, only: [:index, :show, :new, :destroy, :create] do
     resources :documents, only: [:show, :new, :create]
-    resources :messages, only: [:create]
+    resources :messages, only: [:new, :create]
     resources :user_groups, only: [:create]
   end
 
-  resources :documents, only: [:destroy, :create, :index, :show] do
+  resources :documents, only: [:destroy, :index] do
     resources :comments, only: [:create]
     resources :assignements, only: [:new, :create]
   end
-
-  resources :users, only: [:show, :edit, :update]
-  resources :messages, only: [:index]
-  resources :groups
-  resources :assignments, only: [:index, :show, :edit, :update, :destroy]
 
   # Route pour le formulaire de soumission de groupe
   get 'submit-group', to: 'groups#new', as: 'submit_group'

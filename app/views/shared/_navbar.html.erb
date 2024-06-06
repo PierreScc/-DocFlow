@@ -25,14 +25,12 @@
   </div>
 
 
-  <%= link_to messages_path do %>
-    <i class="fa-regular fa-comment"></i>
-  <% end %>
+
+  <i class="fa-regular fa-comment"></i>
+
 
   <% if user_signed_in? %>
-    <%= link_to user_path(current_user) do %>
-      <i class="fa-regular fa-user"></i>
-    <% end %>
+    <i class="fa-regular fa-user"></i>
   <% else %>
     <%= link_to 'Login', new_user_session_path %>
   <% end %>
