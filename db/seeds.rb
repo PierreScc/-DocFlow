@@ -41,7 +41,7 @@ user = User.new(email: "Pierre@test.com", password: "123456", username: "Pierre"
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06UND3AXA5-d9312ff54308-512")
 user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user.save!
-
+a
 puts "#{User.count} users created"
 # Create 5 groups
 

@@ -9,6 +9,7 @@ class GroupsController < ApplicationController
   def show
     @messages = @group.messages.order(created_at: :asc)
     @message = Message.new
+    @users = User.all
   end
 
   def create
