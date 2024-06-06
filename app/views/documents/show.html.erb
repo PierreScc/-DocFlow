@@ -21,5 +21,13 @@
   <p>Group: <%= @document.group.title %></p>
 </div>
 
-<%= link_to 'Back', documents_path %>
+
+<% if @document.assignements.any? %>
+    <% @document.assignements.each do |assignement| %>
+        Assigned to: <%= assignement.user.username %> - Comment: <%= assignement.comment %>
+    <% end %>
+<% end %>
+
+<%= link_to 'Back', documents_path, class: "btn btn-secondary" %>
+<%= link_to 'Assign this document', new_document_assignement_path(@document), class: "btn btn-primary" %>
 
