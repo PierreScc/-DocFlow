@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @document = Document.new
+    @group = Group.new
   end
 end

@@ -3,16 +3,6 @@ class MessagesController < ApplicationController
   before_action :set_user, only: [:new, :create, :edit, :update]
   before_action :authenticate_user!
 
-  def index
-    @messages = Message.all
-  end
-
-  def show
-    if @message.nil?
-      redirect_to messages_path, alert: "Message not found"
-    end
-  end
-
   def create
     @group = Group.find(params[:group_id])
     @message = @group.messages.build(message_params)
@@ -23,22 +13,6 @@ class MessagesController < ApplicationController
       @messages = @group.messages.order(created_at: :asc)
       render 'groups/show'
     end
-  end
-
-  def edit
-  end
-
-  def update
-    if @message.update(message_params)
-      redirect_to message_path(@message), notice: "Message was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    @message.destroy
-    redirect_to messages_path, notice: "Message was successfully destroyed."
   end
 
   private

@@ -6,7 +6,7 @@
   </a>
   <div id="addGroupSection" class="d-none" data-home-target="form">
     <h2>Add Group</h2>
-    <%= simple_form_for Group.new do |f| %>
+    <%= simple_form_for @group do |f| %>
         <%= f.input :photo, as: :file %>
         <%= f.input :title %>
         <%= f.input :category %>
