@@ -1,10 +1,19 @@
 <h1>Document Detail</h1>
 <div>
-  <div class="h-40"
-    style="
-      background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @document.photo.key, height: 300, crop: :fill %>');
-      height: 20vh">
-  </div>
+  <% if @document.photo.present? && @document.photo.key.present? %>
+    <div class="h-40"
+      style="
+        background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(@document.photo.key, height: 300, crop: :fill) %>');
+        height: 20vh">
+    </div>
+  <% else %>
+    <div class="h-40"
+      style="
+        background-color: grey;
+        height: 20vh">
+      <p>No photo available</p>
+    </div>
+  <% end %>
   <h3><%= @document.title %></h3>
   <p>Category: <%= @document.category %></p>
   <p>Comment: <%= @document.comment %></p>
@@ -13,3 +22,4 @@
 </div>
 
 <%= link_to 'Back', documents_path %>
+
