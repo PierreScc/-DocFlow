@@ -13,7 +13,6 @@ body {
   text-decoration: none;
   color: inherit;
   font-size: 2em;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 }
 
@@ -46,7 +45,6 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 }
 
@@ -57,7 +55,6 @@ body {
   padding: 10px;
   text-decoration: none;
   font-size: 17px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 }
 
@@ -69,13 +66,24 @@ body {
 .navbar i {
   color: rgb(54, 0, 52);
   font-size: 24px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 }
 
 .navbar a[href="#Add"] i {
   font-size: 45px;
   color: rgb(107, 148, 219);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
+}
+
+.btn.btn-outline-light {
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 10px 20px;
+  border-radius: 25px;
+}
+
+.btn.btn-outline-light h2 {
+  margin: 0;
+  font-size: 16px;
+  color: #4c013d;
 }

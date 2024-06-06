@@ -1,48 +1,20 @@
-<!-- app/views/pages/home.html.erb -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <title>Home - DocFlow</title>
-</head>
-<body>
-  <div>
-    <%= image_tag "home-image.png", alt: "DocFlow", width: 440, height: 300, class: "image" %>
+<%= image_tag "home-image.png", alt: "DocFlow", width: 440, height: 300, class: "image" %>
+
+<div class="menu_create" data-controller="home">
+  <a class="icon-button" data-action="click->home#reveal">
+    <i class="fa-solid fa-users-rays"></i>
+  </a>
+  <div id="addGroupSection" class="d-none" data-home-target="form">
+    <h2>Add Group</h2>
+    <%= simple_form_for Group.new do |f| %>
+        <%= f.input :photo, as: :file %>
+        <%= f.input :title %>
+        <%= f.input :category %>
+        <%= f.button :submit %>
+    <% end %>
   </div>
+</div>
 
-  <div class="menu_create">
-    <a href="#createGroupSection" class="icon-button" onclick="toggleSection('createGroupSection')"><i class="fa-solid fa-person-circle-plus"></i></a>
-
-    <div id="createGroupSection" class="popup-container">
-      <h2>Create Group</h2>
-      <%= form_with url: submit_group_path, local: true, html: { enctype: "multipart/form-data" } do |form| %>
-        <div class="field">
-          <%= form.label :title %>
-          <%= form.text_field :title %>
-        </div>
-        <div class="field">
-          <%= form.label :category %>
-          <%= form.text_field :category %>
-        </div>
-        <div class="actions">
-          <%= form.submit "Done" %>
-        </div>
-      <% end %>
-    </div>
-
-    <script>
-      function toggleSection(sectionId) {
-        const section = document.getElementById(sectionId);
-        section.style.display = section.style.display === 'none' ? 'block' : 'none';
-      }
-    </script>
-  </div>
-</body>
-</html>
-
-
-
-
-changer les forms en stimulus, utliser la doc du cours
+<button class= "btn btn-outline-light">
+  <h2> My Groupes </h2>
+</button>
