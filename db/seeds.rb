@@ -13,7 +13,7 @@ icons = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN9J7KeLhBzPJQmd
          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmhxeR7TgQyYFK29R0tbq_IkCoZO1FE19HBA&s"]
 icons.each do |icon|
   user = User.new(
-    username: Faker::Name.name,
+    username: Faker::Name.first_name,
     email: Faker::Internet.email,
     password: "123456"
   )
