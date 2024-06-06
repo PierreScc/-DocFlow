@@ -12,7 +12,7 @@
   <a class="icon-button" data-action="click->navbar#reveal" >
     <i class="fa-solid fa-plus"></i>
   </a>
-  <div id="addDocumentSection" class="d-none" data-navbar-target="form">
+  <div id="addDocumentSection" class="d-none py-3 px-2" data-navbar-target="form">
       <h2>Add Document</h2>
       <%= simple_form_for Document.new do |f| %>
         <%= f.input :photo, as: :file %>
@@ -25,14 +25,12 @@
   </div>
 
 
-  <%= link_to messages_path do %>
-    <i class="fa-regular fa-comment"></i>
-  <% end %>
+
+  <i class="fa-regular fa-comment"></i>
+
 
   <% if user_signed_in? %>
-    <%= link_to user_path(current_user) do %>
-      <i class="fa-regular fa-user"></i>
-    <% end %>
+    <i class="fa-regular fa-user"></i>
   <% else %>
     <%= link_to 'Login', new_user_session_path %>
   <% end %>

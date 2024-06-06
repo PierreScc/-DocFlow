@@ -13,22 +13,41 @@ body {
   text-decoration: none;
   color: inherit;
   font-size: 2em;
-
 }
 
-.popup-container {
+.dropdown-button {
+  cursor: pointer;
+}
+
+#addDocumentSection {
   position: fixed;
   bottom: 100px;
+  width: 93%;
+  background-color: #eee7ed;
+  height: 40vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  z-index: 100000;
+  border-radius: 17px;
+  padding: 40px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  bottom: 60px; /* Adjust based on your navbar height */
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
-  max-height: 40%;
-  overflow-y: auto;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  min-width: 300px;
   padding: 20px;
-  display: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dropdown-content.show {
+  display: block;
 }
 
 .field {
@@ -45,7 +64,6 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-
 }
 
 .navbar a {
@@ -55,7 +73,6 @@ body {
   padding: 10px;
   text-decoration: none;
   font-size: 17px;
-
 }
 
 .navbar a.active {
@@ -66,13 +83,11 @@ body {
 .navbar i {
   color: rgb(54, 0, 52);
   font-size: 24px;
-
 }
 
 .navbar a[href="#Add"] i {
   font-size: 45px;
   color: rgb(107, 148, 219);
-
 }
 
 .btn.btn-outline-light {

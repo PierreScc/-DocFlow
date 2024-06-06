@@ -6,11 +6,11 @@ User.destroy_all
 Group.destroy_all
 
 puts "Creating users..."
-icons = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN9J7KeLhBzPJQmdTpaYSD4Jdz5o3FpfkXIw&s",
+icons = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqE3FvDvArNbK5DiMh88hYQgYfJqz8oM5xEw&s",
          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpzjtaLlYumGfxyzb1ipEckPEMJE1oPCmWfg&s",
          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAZbBJu2_ploZkylQSQcuVLrK_sUDbYVv00w&s",
-         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZa8k1fDzhwxQO63o0Pv--JZ4QwVxftBhFTw&s",
-         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmhxeR7TgQyYFK29R0tbq_IkCoZO1FE19HBA&s"]
+         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyFeHQjv1xdW2PvI_xmNF9IFkEiBIxMtrN7g&s",
+         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIfBrTzjblqtKxXgRcDV63uJjYq29SC9WvBg&s"]
 icons.each do |icon|
   user = User.new(
     username: Faker::Name.first_name,
