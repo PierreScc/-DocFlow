@@ -1,5 +1,12 @@
-<%= simple_form_for(group, document) do |f| %>
-  <%= f.input :photo, as: :file %>
-  <%= f.input :comment %>
-  <%= f.input :category%>
+<%= simple_form_for([@document.group, @document]) do |f| %>
+  <div class="form-group">
+    <%= f.input :photo, as: :file, label: "Upload Photo", input_html: { class: 'form-control-file' } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :comment, label: "Comment", input_html: { class: 'form-control' } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :category, label: "Category", input_html: { class: 'form-control' } %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-primary mt-3" %>
 <% end %>
