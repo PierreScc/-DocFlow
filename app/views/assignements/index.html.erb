@@ -1,7 +1,7 @@
 <h1>Assignements</h1>
 <% @assignements.each do |assignement| %>
   <div>
-    <h3><%= link_to "Assignment ##{assignement.id}", document_assignement_path(assignement.document, assignement) %></h3>
+    <h3><%= link_to "Assignement ##{assignement.id}", document_assignement_path(assignement.document, assignement) %></h3>
     <p>User: <%= assignement.user.username %></p>
     <p>Document: <%= assignement.document.title %></p>
     <p>Comment: <%= assignement.comment %></p>
