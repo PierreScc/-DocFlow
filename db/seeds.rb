@@ -22,26 +22,26 @@ icons.each do |icon|
   user.save!
 end
 
-user = User.create(email: "clement@test.com", password: "123456", username: "Clement")
+user = User.new(email: "clement@test.com", password: "123456", username: "Clement")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06TGAB5T7C-7927c68befc2-512")
 user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-user.save
+user.save!
 
-user = User.create(email: "Ghali@test.com", password: "123456", username: "Ghali")
+user = User.new(email: "Ghali@test.com", password: "123456", username: "Ghali")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06U343CF9U-e4f83f86e924-512")
 user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-user.save
-  
-user = User.create(email: "Thibault@test.com", password: "123456", username: "Thibault")
+user.save!
+
+user = User.new(email: "Thibault@test.com", password: "123456", username: "Thibault")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06ULG73AJV-82dbe6bd2b57-512")
 user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-user.save
+user.save!
 
-user = User.create(email: "Pierre@test.com", password: "123456", username: "Pierre")
+user = User.new(email: "Pierre@test.com", password: "123456", username: "Pierre")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06UND3AXA5-d9312ff54308-512")
 user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-user.save
-
+user.save!
+a
 puts "#{User.count} users created"
 # Create 5 groups
 

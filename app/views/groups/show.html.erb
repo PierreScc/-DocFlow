@@ -1,6 +1,19 @@
+<h1>Members</h1>
+<% @group.users.each do |user| %>
+  <div class="member">
+    <% if user.photo.attached? %>
+      <%= image_tag url_for(user.photo), class: "avatar", alt: "avatar" %>
+    <% end %>
+    <p><%= user.username %></p>
+  </div>
+<% end %>
+
+
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
+  Add members
 </button>
+
+<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -9,7 +22,21 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+        <%= simple_form_for :test, url: group_user_groups_path(@group) do |f|  %>
+        <% end %>
+        <form action="<%= group_user_groups_path(@group) %>" method="post" class="form-example">
+          <div class="form-example">
+          <% @users.each do |user| %>
+            <div>
+              <input type="checkbox" id="user_<%= user.id %>" name="user_id[]" value="<%= user.id %>" />
+              <label for="user_<%= user.id %>"><%= user.username %></label>
+            </div>
+          <% end %>
+          </div>
+          <div class="form-example">
+            <input type="submit" value="Subscribe!" />
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -18,12 +45,3 @@
     </div>
   </div>
 </div>
-<h1>Members</h1>
-<% @group.users.each do |user| %>
-  <div class="member">
-    <% if user.photo.attached? %>
-      <%= cl_image_tag user.photo.key, class: "avatar", alt: "avatar" %>
-    <% end %>
-    <p><%= user.username %></p>
-  </div>
-<% end %>

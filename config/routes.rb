@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :groups, only: [:index, :show, :new, :destroy, :create] do
     resources :documents, only: [:show, :new, :create]
     resources :messages, only: [:create]
+    resources :user_groups, only: [:create]
   end
 
   resources :documents, only: [:destroy, :create, :index, :show] do
