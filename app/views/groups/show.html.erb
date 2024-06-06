@@ -1,14 +1,17 @@
 <h1>Members</h1>
-<% @group.users.each do |user| %>
-<div class="card" justify-content: space-between  >
-  <div class="member">
-    <% if user.photo.attached? %>
-      <%= image_tag url_for(user.photo), class: "avatar", alt: "avatar" %>
-    <% end %>
-    <p><%= user.username %></p>
+<div style="display: flex; flex-wrap: nowrap; overflow-x: auto;">
+  <% @group.users.each do |user| %>
+    <div style="margin: 10px;">
+      <div class="member">
+        <% if user.photo.attached? %>
+          <%= image_tag url_for(user.photo), class: "avatar", alt: "avatar" %>
+        <% end %>
+        <p><%= user.username %></p>
+      </div>
+    </div>
+  <% end %>
 </div>
-  </div>
-<% end %>
+
 
 
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
