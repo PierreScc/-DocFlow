@@ -16,7 +16,6 @@
   <p><strong>Group:</strong> <%= @document.group.title %></p>
 
   <% if @document.assignements.any? %>
-    <h4 class="mt-4">Assignments</h4>
     <ul class="list-group">
       <% @document.assignements.each do |assignement| %>
         <li class="list-group-item">
@@ -26,7 +25,6 @@
     </ul>
   <% end %>
 
-  <%= link_to 'Back', documents_path, class: 'btn btn-secondary mt-3' %>
+  <%= link_to 'Back', documents_path, class: 'btn btn-primary mt-3' %>
   <%= link_to 'Assign this document', new_document_assignement_path(@document), class: "btn btn-primary mt-3" %>
 </div>
-
