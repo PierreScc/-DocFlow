@@ -1,15 +1,16 @@
 <!-- app/views/shared/_navbar.html.erb -->
 <div class="navbar" data-controller="navbar">
-  <%= link_to root_path, class: 'active' do %>
+
+
+  <%= link_to root_path, class: controller_name == "pages" && action_name == "home" ? "active" : "" do %>
     <i class="fa-solid fa-house"></i>
   <% end %>
 
-  <%= link_to documents_path do %>
+  <%= link_to documents_path, class: controller_name == "documents" && action_name == "index" ? "active" : "" do %>
     <i class="fa-regular fa-folder-open"></i>
   <% end %>
 
-
-  <a class="icon-button" data-action="click->navbar#reveal" >
+  <a class="icon-button btn-primary" data-action="click->navbar#reveal" >
     <i class="fa-solid fa-plus"></i>
   </a>
   <div id="addDocumentSection" class="d-none py-3 px-2" data-navbar-target="form">
@@ -23,11 +24,7 @@
         <%= f.button :submit %>
       <% end %>
   </div>
-
-
-
   <i class="fa-regular fa-comment"></i>
-
 
   <% if user_signed_in? %>
     <i class="fa-regular fa-user"></i>
