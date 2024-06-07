@@ -11,12 +11,13 @@
     </div>
   <% end %>
 </div>
+
 <% @group.documents.each do |document| %>
   <div class="document">
     <div class="doccard">
       <% if document.photo.attached? %>
         <%= link_to group_document_path(@group, document) do %>
-            <%= image_tag url_for(document.photo), class: "image-doc" %>
+          <%= image_tag url_for(document.photo), class: "image-doc" %>
           <h3><%= document.title %></h3>
         <% end %>
       </div>
@@ -24,11 +25,9 @@
   </div>
 <% end %>
 
-<button type="button" style="margin-bottom: 10px" class="button-34" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" style="margin-top: 70px; margin-bottom: 10px;" class="button-34" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Add members
 </button>
-
-<a href="/groups">Back</a>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -38,17 +37,17 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for :test, url: group_user_groups_path(@group) do |f|  %>
+        <%= simple_form_for :test, url: group_user_groups_path(@group) do |f| %>
         <% end %>
         <form action="<%= group_user_groups_path(@group) %>" method="post" class="form-example">
           <div class="form-example">
-          <% @users.each do |user| %>
-            <div>
-              <input type="checkbox" id="user_<%= user.id %>" name="user_id[]" value="<%= user.id %>" />
-              <label for="user_<%= user.id %>"><%= user.username %></label>
-            </div>
-          <% end %>
-          <div class="form-example">
+            <% @users.each do |user| %>
+              <div>
+                <input type="checkbox" id="user_<%= user.id %>" name="user_id[]" value="<%= user.id %>" />
+                <label for="user_<%= user.id %>"><%= user.username %></label>
+              </div>
+            <% end %>
+          </div>
         </form>
       </div>
       <div class="modal-footer">
