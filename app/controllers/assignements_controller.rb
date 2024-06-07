@@ -13,7 +13,7 @@ class AssignementsController < ApplicationController
   end
 
   def new
-    @assignment = @document.assignements.new
+    @assignement = @document.assignements.new
     @users = User.all
   end
 
