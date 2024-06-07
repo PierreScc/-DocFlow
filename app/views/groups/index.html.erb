@@ -1,8 +1,41 @@
-<!-- app/views/groups/index.html.erb -->
+<h1 class="text-center my-4" style="font-size: 2.5rem; color: #6a1b9a; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; position: sticky; top: 0; background-color: #EEE7ED; z-index: 1020;">
+  <i class="fas fa-users"></i> Groups
+</h1>
 
-<h1>Groups</h1>
-<% @groups.each do |group| %>
-  <div>
-    <h3><%= link_to group.title, group_path(group) %></h3>
+<div class="container" style="max-width: 1200px; margin: 0 auto; background-color: #EEE7ED; border-radius: 25px; padding: 20px; height: calc(100vh - 80px); overflow: hidden;">
+  <div class="row mb-4">
+    <div class="col-12 text-right">
+      <% if Group.any? %>
+        <% first_group = Group.first %>
+      <% end %>
+    </div>
   </div>
-<% end %>
+  <div class="row">
+    <div class="col-12">
+      <div class="table-container" style="border-radius: 25px; overflow: auto; height: calc(100vh - 210px);">
+        <table class="table table-hover table-bordered table-striped align-middle" style="border-radius: 25px; overflow: hidden;">
+          <thead style="background-color: #8e24aa; color: #ffffff;">
+            <tr>
+              <th scope="col">Group Title</th>
+              <th scope="col" class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @groups.each do |group| %>
+              <tr>
+                <td style="font-weight: bold; font-size: 1.2rem; color: #6a1b9a;">
+                  <%= link_to group.title, group_path(group), style: 'color: #6a1b9a;' %>
+                </td>
+                <td class="text-center">
+                  <%= button_to group_path(group), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm mx-2', style: 'border-radius: 12px; padding: 4px 8px; color: #d32f2f; border-color: #d32f2f;' do %>
+                    <i class="fas fa-trash-alt"></i> Delete
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
