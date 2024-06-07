@@ -42,10 +42,8 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Add Members</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <%= simple_form_for :test, url: group_user_groups_path(@group) do |f| %>
-        <% end %>
-        <form action="<%= group_user_groups_path(@group) %>" method="post" class="form-example">
+      <form action="<%= group_user_groups_path(@group) %>" method="post" class="form-example">
+        <div class="modal-body">
           <div class="form-example">
             <% @users.each do |user| %>
               <div>
@@ -54,12 +52,12 @@
               </div>
             <% end %>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="button" data-bs-dismiss="modal">Close</button>
-        <input type="submit" class="button-34" value="Add" style="padding: 8px 18px" />
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="button" data-bs-dismiss="modal">Close</button>
+          <input type="submit" class="button-34" value="Add" style="padding: 8px 18px" />
+        </div>
+      </form>
     </div>
   </div>
 </div>
