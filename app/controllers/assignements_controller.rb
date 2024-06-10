@@ -7,7 +7,7 @@ class AssignementsController < ApplicationController
   end
 
   def show
-    if @assignements.nil?
+    if @assignement.nil?
       redirect_to documents_path, alert: "Assignement not found"
     end
   end
@@ -18,14 +18,18 @@ class AssignementsController < ApplicationController
   end
 
   def create
-    @assignement = @document.assignements.new(assignement_params)
     @group = @document.group
-    if @assignement.save
-      redirect_to group_document_path(@group, @document), notice: 'Assignement was successfully created.'
-    else
-      @users = User.all
-      render :new
+    user_ids = assignement_params[:user_ids].reject(&:blank?)
+
+    user_ids.each do |user_id|
+      @assignement = @document.assignements.new(user_id: user_id, comment: assignement_params[:comment])
+      unless @assignement.save
+        @users = User.all
+        render :new
+      end
     end
+
+    redirect_to group_document_path(@group, @document), notice: 'Assignements were successfully created.'
   end
 
   def edit
@@ -33,7 +37,7 @@ class AssignementsController < ApplicationController
 
   def update
     if @assignement.update(assignement_params)
-      redirect_to document_path(@document), notice: "Assignement was successfully updated."
+      redirect_to group_document_path(@document.group, @document), notice: "Assignement was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -41,7 +45,7 @@ class AssignementsController < ApplicationController
 
   def destroy
     @assignement.destroy
-    redirect_to document_path(@document), notice: "Assignement was successfully destroyed."
+    redirect_to group_document_path(@document.group, @document), notice: "Assignement was successfully destroyed."
   end
 
   private
@@ -55,6 +59,6 @@ class AssignementsController < ApplicationController
   end
 
   def assignement_params
-    params.require(:assignement).permit(:user_id, :document_id, :comment)
+    params.require(:assignement).permit({ user_ids: [] }, :comment)
   end
 end
