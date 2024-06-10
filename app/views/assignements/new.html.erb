@@ -1,9 +1,10 @@
-<h1 class="page-title">New Assignement</h1>
+<!-- app/views/assignements/new.html.erb -->
+<h1 class="page-title">New Assignment</h1>
 
-<%= simple_form_for([@document, @assignement], html: { class: 'assigenment-form w-100 px-4' } )do |form| %>
+<%= simple_form_for([@document, @assignement], html: { class: 'assignment-form w-100 px-4' }) do |form| %>
   <% if @assignement.errors.any? %>
     <div id="error_explanation" class="error-messages">
-      <h2><%= pluralize(@assignement.errors.count, "error") %> prohibited this assignement from being saved:</h2>
+      <h2><%= pluralize(@assignement.errors.count, "error") %> prohibited this assignment from being saved:</h2>
       <ul>
         <% @assignement.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -13,17 +14,22 @@
   <% end %>
 
   <div class="form-group">
-    <%#= form.label :user_id, class: 'form-label' %>
-    <%= form.association :user, collection: @users, value_method: :id, label_method: :username, prompt: "Select a user", class: 'form-control' %>
+    <%= form.label :user_ids, "Assign to" %><br>
+    <% @users.each do |user| %>
+      <div class="form-check">
+        <%= check_box_tag 'assignement[user_ids][]', user.id, false, class: 'form-check-input', id: "user_#{user.id}" %>
+        <%= label_tag "user_#{user.id}", user.username, class: 'form-check-label' %>
+      </div>
+    <% end %>
   </div>
 
   <div class="form-group">
-    <%#= form.label :comment, class: 'form-label' %>
     <%= form.input :comment, class: 'form-control' %>
   </div>
 
   <div class="form-actions">
-    <%= link_to 'Back', document_path(@document), class: "btn btn-secondary" %>
+    <%= link_to 'Back', group_document_path(@document.group, @document), class: "btn btn-secondary" %>
     <%= form.submit 'Assign', class: 'btn btn-primary' %>
   </div>
 <% end %>
+
