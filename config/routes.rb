@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     resources :assignements, only: [:new, :create]
   end
 
-  # Route pour le formulaire de soumission de groupe
   get 'submit-group', to: 'groups#new', as: 'submit_group'
   post 'submit-group', to: 'groups#create'
 end

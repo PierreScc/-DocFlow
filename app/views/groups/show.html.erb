@@ -1,12 +1,35 @@
-    <body style="background: url('<%= asset_path("fallingdoc.png") %>') no-repeat center center fixed; background-size: cover; margin: 0;">
+<body style="background: url('<%= asset_path("fallingdoc.png") %>') no-repeat center center fixed; background-size: cover; margin: 0; padding-top: 20px;">
 
-<h1>Members</h1>
+<h1 class="members-title">Members</h1>
+
 <style>
+  .members-title {
+    color: white;
+    font-size: 4rem; /* Ajustez la taille selon vos besoins */
+    text-align: center;
+    margin-bottom: 50px; /* Ajustez cette valeur selon vos besoins */
+    margin-top: 20px; /* Ajoutez cette ligne pour monter le titre */
+  }
+
+  .username {
+    color: white;
+    font-size: 1.2rem; /* Ajustez la taille selon vos besoins */
+    margin-top: 10px;
+  }
+
+  .avatar {
+    width: 60px; /* Ajustez cette valeur selon vos besoins */
+    height: 60px; /* Ajustez cette valeur selon vos besoins */
+    border-radius: 50%; /* Pour rendre l'avatar circulaire */
+    margin-bottom: 10px;
+  }
+
   .document-card {
     height: 100px;
-    width: 300px /* Adjust the height as needed */
+    width: 300px; /* Adjust the height as needed */
   }
 </style>
+
 <div class="row">
   <% @group.users.each do |user| %>
     <div class="col-3 mb-4">
@@ -50,7 +73,7 @@
             <% @users.each do |user| %>
               <div>
                 <input type="checkbox" id="user_<%= user.id %>" name="user_id[]" value="<%= user.id %>" />
-                <label for="user_<%= user.id %>"><%= user.username %></label>
+                <label for="user_<%= user.id %>" class="username"><%= user.username %></label>
               </div>
             <% end %>
           </div>
