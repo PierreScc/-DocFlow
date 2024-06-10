@@ -48,7 +48,7 @@
         <%= link_to documents_path, class: 'btn btn-outline-primary btn-sm mx-2', style: 'border-radius: 12px; padding: 6px 12px; color: #6a1b9a; border-color: #6a1b9a;' do %>
           <i class="fa-solid fa-arrow-left"></i>
         <% end %>
-        <%= link_to 'Assign this document', new_document_assignement_path(@document), class: 'btn btn-outline-primary btn-sm mx-2', style: 'border-radius: 12px; padding: 6px 12px; color: #6a1b9a; border-color: #6a1b9a;' %>
+        <%= link_to 'Assign', new_document_assignement_path(@document), class: 'btn btn-outline-primary btn-sm mx-2', style: 'border-radius: 12px; padding: 6px 12px; color: #6a1b9a; border-color: #6a1b9a;' %>
         <button type="button" class="btn btn-outline-primary btn-sm mx-2" style="border-radius: 12px; padding: 6px 12px; color: #6a1b9a; border-color: #6a1b9a;" data-bs-toggle="modal" data-bs-target="#viewDocumentModal">
           <i class="fa-solid fa-arrows-to-eye"></i>
         </button>
@@ -62,7 +62,7 @@
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="viewDocumentModalLabel" style="font-size: 1.8rem; color: #6a1b9a; font-weight: bold; margin-top: -10px;"><%= @document.title %></h5>
+        <h5 class="modal-title" id="viewDocumentModalLabel" style="font-size: 1.8rem; color: #6a1b9a; font-weight: bold;"><%= @document.title %></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" style="text-align: center;">

@@ -28,7 +28,7 @@ body {
   overflow: hidden;
   overflow-y: scroll;
   z-index: 100000;
-  border-radius: 23px;
+  border-radius: 50px;
   padding: 40px;
 }
 
@@ -55,32 +55,33 @@ body {
 }
 
 .navbar {
-  background-color: #291e27f0;
+  background-color: #536EFD;
   overflow: hidden;
   position: fixed;
-  bottom: 0;
-  width: 100%;
+  bottom: 20px;
+  width: 91%;
   padding: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border-radius: 50px;
 }
 
 .navbar a {
   display: block;
-  color: #954caf;
+  color: #fbf9fc;
   text-align: center;
   text-decoration: none;
   font-size: 17px;
 }
 
 .navbar a.active {
-  background-color: #bc2a9f4b;
+  background-color: #2764464b;
   border-radius: 50px;
 }
 
 .navbar i {
-  color: rgb(212, 182, 211);
+  color: rgb(247, 246, 247);
   font-size: 24px;
   padding: 10px;
 }
