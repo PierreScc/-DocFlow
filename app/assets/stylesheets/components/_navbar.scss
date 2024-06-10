@@ -19,6 +19,17 @@ body {
   cursor: pointer;
 }
 
+.plus-btn {
+  background-color: #536EFD;
+  transform: translateY(-30px);
+  border-radius: 50%;
+  padding: 0px;
+  padding: 10px;
+  .fa-plus {
+    font-size: 40px !important;
+  }
+}
+
 #addDocumentSection {
   position: fixed;
   bottom: 106px;
@@ -56,7 +67,6 @@ body {
 
 .navbar {
   background-color: #536EFD;
-  overflow: hidden;
   position: fixed;
   bottom: 20px;
   width: 91%;
