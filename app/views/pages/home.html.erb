@@ -1,19 +1,37 @@
-
 <div class="menu_create" data-controller="home">
-  <a class="icon-button" data-action="click->home#reveal">
+  <a class="icon-button" data-bs-toggle="modal" data-bs-target="#addGroupModal">
     <i class="fa-solid fa-users-rays"></i>
   </a>
-  <div id="addGroupSection" class="d-none" data-home-target="form">
-    <h2>Add Group</h2>
-    <%= simple_form_for @group do |f| %>
-        <%= f.input :photo, as: :file %>
-        <%= f.input :title %>
-        <%= f.input :category %>
-        <%= f.button :submit %>
-    <% end %>
-  </div>
 </div>
 
-<a href = "<%= groups_path %>" class="btn btn-outline-light">
-<h2>My Groups</h2>
+<a href="<%= groups_path %>" class="btn btn-outline-light">
+  <h2>My Groups</h2>
 </a>
+
+<!-- Add Group Modal -->
+<div class="modal fade" id="addGroupModal" tabindex="-1" aria-labelledby="addGroupModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addGroupModalLabel">Add Group</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @group do |f| %>
+          <div class="mb-3">
+            <%= f.input :photo, as: :file %>
+          </div>
+          <div class="mb-3">
+            <%= f.input :title %>
+          </div>
+          <div class="mb-3">
+            <%= f.input :category, collection: ['Family', 'Personal', 'Professional'] %>
+          </div>
+          <div class="mb-3">
+            <%= f.button :submit, class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
