@@ -1,7 +1,5 @@
 <!-- app/views/shared/_navbar.html.erb -->
 <div class="navbar" data-controller="navbar">
-
-
   <%= link_to root_path, class: controller_name == "pages" && action_name == "home" ? "active" : "" do %>
     <i class="fa-solid fa-house"></i>
   <% end %>
@@ -10,19 +8,9 @@
     <i class="fa-regular fa-folder-open"></i>
   <% end %>
 
-  <a class="icon-button" data-action="click->navbar#reveal" >
+  <a class="icon-button" data-bs-toggle="modal" data-bs-target="#addDocumentModal">
     <i class="fa-solid fa-plus"></i>
   </a>
-  <div id="addDocumentSection" class="d-none py-3 px-2" data-navbar-target="form">
-      <h2>Add Document</h2>
-      <%= simple_form_for Document.new do |f| %>
-        <%= f.input :photo, as: :file %>
-        <%= f.input :title %>
-        <%= f.input :category, collection: ['Family', 'Personal', 'Professional'] %>
-        <%= f.association :group %>
-        <%= f.button :submit %>
-      <% end %>
-  </div>
 
   <i class="fa-regular fa-comment"></i>
 
@@ -31,4 +19,32 @@
   <% else %>
     <%= link_to 'Login', new_user_session_path %>
   <% end %>
+</div>
+
+<!-- Add Document Modal -->
+<div class="modal fade" id="addDocumentModal" tabindex="-1" aria-labelledby="addDocumentModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addDocumentModalLabel">Add Document</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for Document.new do |f| %>
+          <div class="mb-3">
+            <%= f.input :photo, as: :file %>
+          </div>
+          <div class="mb-3">
+            <%= f.input :title %>
+          </div>
+          <div class="mb-3">
+            <%= f.association :group %>
+          </div>
+          <div class="mb-3">
+            <%= f.button :submit, class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
