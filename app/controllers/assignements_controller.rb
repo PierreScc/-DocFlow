@@ -25,7 +25,7 @@ class AssignementsController < ApplicationController
       @assignement = @document.assignements.new(user_id: user_id, comment: assignement_params[:comment])
       unless @assignement.save
         @users = User.all
-        render :new 
+        render :new
       end
     end
 
@@ -37,7 +37,7 @@ class AssignementsController < ApplicationController
 
   def update
     if @assignement.update(assignement_params)
-      redirect_to document_path(@document), notice: "Assignement was successfully updated."
+      redirect_to group_document_path(@document.group, @document), notice: "Assignement was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -45,7 +45,7 @@ class AssignementsController < ApplicationController
 
   def destroy
     @assignement.destroy
-    redirect_to document_path(@document), notice: "Assignement was successfully destroyed."
+    redirect_to group_document_path(@document.group, @document), notice: "Assignement was successfully destroyed."
   end
 
   private
@@ -59,6 +59,6 @@ class AssignementsController < ApplicationController
   end
 
   def assignement_params
-    params.require(:assignement).permit(user_ids: [])
+    params.require(:assignement).permit({ user_ids: [] }, :comment)
   end
 end
