@@ -1,10 +1,10 @@
-    <body style="background: url('<%= asset_path("fallingdoc.png") %>') no-repeat center center fixed; background-size: cover; margin: 0;">
+ <body style="background: url('<%= asset_path("fallingdoc.png") %>') no-repeat center center fixed; background-size: cover; margin: 0;">
 
 <h1>Members</h1>
 <style>
   .document-card {
     height: 100px;
-    width: 300px /* Adjust the height as needed */
+    width: 300px; /* Adjust the height as needed */
   }
 </style>
 <div class="row">
@@ -20,18 +20,21 @@
   <% end %>
 </div>
 
-<% @group.documents.each do |document| %>
-  <div class="col-3 mb-4">
-    <div class="document doccard">
-      <% if document.photo.attached? %>
-        <%= link_to group_document_path(@group, document) do %>
-          <%= image_tag url_for(document.photo), class: "image-doc img-fluid" %>
-          <h3 class="doc-title"><%= document.title %></h3>
+<h2>Documents</h2>
+<div class="row">
+  <% @group.documents.each do |document| %>
+    <div class="col-3 mb-4">
+      <div class="document doccard">
+        <% if document.photo.attached? %>
+          <%= link_to group_document_path(@group, document) do %>
+            <%= image_tag url_for(document.photo), class: "image-doc img-fluid" %>
+            <h3 class="doc-title"><%= document.title %></h3>
+          <% end %>
         <% end %>
       </div>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+</div>
 
 <button type="button" style="margin-top: 70px; margin-bottom: 10px;" class="button-34" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Add members
@@ -63,3 +66,43 @@
     </div>
   </div>
 </div>
+
+<h2>Chatroom</h2>
+<div class="chatroom">
+  <div id="messages" class="messages">
+    <% @messages.each do |message| %>
+      <div class="message">
+        <strong><%= message.user.username %>:</strong>
+        <%= message.content %>
+      </div>
+    <% end %>
+  </div>
+  <%= form_with(model: [@group, @message], local: true) do |form| %>
+    <div class="form-group">
+      <%= form.text_area :content, rows: 3, class: "form-control", placeholder: "Type your message here..." %>
+    </div>
+    <div class="form-group mt-2">
+      <%= form.submit "Send", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
+<style>
+  .chatroom {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+
+  .messages {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .message {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+  }
+</style>
