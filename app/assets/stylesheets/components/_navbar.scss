@@ -21,14 +21,14 @@ body {
 
 #addDocumentSection {
   position: fixed;
-  bottom: 100px;
-  width: 93%;
+  bottom: 106px;
+  width: 88%;
   background-color: #eee7ed;
-  height: 40vh;
+  height: 44vh;
   overflow: hidden;
   overflow-y: scroll;
   z-index: 100000;
-  border-radius: 17px;
+  border-radius: 23px;
   padding: 40px;
 }
 
@@ -70,7 +70,6 @@ body {
   display: block;
   color: #954caf;
   text-align: center;
-  padding: 10px;
   text-decoration: none;
   font-size: 17px;
 }
@@ -83,17 +82,17 @@ body {
 .navbar i {
   color: rgb(54, 0, 52);
   font-size: 24px;
+  padding: 10px;
 }
 
 .navbar a[href="#Add"] i {
   font-size: 45px;
-  color: rgb(107, 148, 219);
+  color: rgb(255, 255, 255);
 }
 
 .btn.btn-outline-light {
   background-color: #ffffff;
   border: 1px solid #ffffff;
-  padding: 10px 20px;
   border-radius: 25px;
 }
 

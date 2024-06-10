@@ -1,34 +1,39 @@
 <h1>Members</h1>
-<div style="display: flex; flex-wrap: nowrap; overflow-x: auto;">
+<style>
+  .document-card {
+    height: 100px;
+    width: 300px /* Adjust the height as needed */
+  }
+</style>
+<div class="row">
   <% @group.users.each do |user| %>
-    <div style="margin: 10px;">
-      <div class="member">
+    <div class="col-3 mb-4">
+      <div class="member text-center">
         <% if user.photo.attached? %>
           <%= image_tag url_for(user.photo), class: "avatar", alt: "avatar" %>
         <% end %>
-        <p><%= user.username %></p>
+        <p class="username"><%= user.username %></p>
       </div>
     </div>
   <% end %>
 </div>
+
 <% @group.documents.each do |document| %>
-  <div class="document">
-    <div class="doccard">
+  <div class="col-3 mb-4">
+    <div class="document doccard">
       <% if document.photo.attached? %>
         <%= link_to group_document_path(@group, document) do %>
-            <%= image_tag url_for(document.photo), class: "image-doc" %>
-          <h3><%= document.title %></h3>
+          <%= image_tag url_for(document.photo), class: "image-doc img-fluid" %>
+          <h3 class="doc-title"><%= document.title %></h3>
         <% end %>
       </div>
     <% end %>
   </div>
 <% end %>
 
-<button type="button" style="margin-bottom: 10px" class="button-34" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" style="margin-top: 70px; margin-bottom: 10px;" class="button-34" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Add members
 </button>
-
-<a href="/groups">Back</a>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -37,24 +42,22 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Add Members</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <%= simple_form_for :test, url: group_user_groups_path(@group) do |f|  %>
-        <% end %>
-        <form action="<%= group_user_groups_path(@group) %>" method="post" class="form-example">
+      <form action="<%= group_user_groups_path(@group) %>" method="post" class="form-example">
+        <div class="modal-body">
           <div class="form-example">
-          <% @users.each do |user| %>
-            <div>
-              <input type="checkbox" id="user_<%= user.id %>" name="user_id[]" value="<%= user.id %>" />
-              <label for="user_<%= user.id %>"><%= user.username %></label>
-            </div>
-          <% end %>
-          <div class="form-example">
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="button" data-bs-dismiss="modal">Close</button>
-        <input type="submit" class="button-34" value="Add" style="padding: 8px 18px" />
-      </div>
+            <% @users.each do |user| %>
+              <div>
+                <input type="checkbox" id="user_<%= user.id %>" name="user_id[]" value="<%= user.id %>" />
+                <label for="user_<%= user.id %>"><%= user.username %></label>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="button" data-bs-dismiss="modal">Close</button>
+          <input type="submit" class="button-34" value="Add" style="padding: 8px 18px" />
+        </div>
+      </form>
     </div>
   </div>
 </div>
