@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy, :create, :new]
   before_action :set_user, only: [:new, :create, :edit, :update]
   before_action :authenticate_user!
+  before_action :set_group, only: [:create]
 
   def create
     @group = Group.find(params[:group_id])
@@ -23,6 +24,10 @@ class MessagesController < ApplicationController
 
   def set_user
     @user = User.find(params[:user_id])
+  end
+
+  def set_group
+    @group = Group.find(params[:group_id])
   end
 
   def message_params
