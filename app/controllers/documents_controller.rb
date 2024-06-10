@@ -1,6 +1,7 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
 
+
   def index
     @documents = Document.all
   end
@@ -45,6 +46,10 @@ class DocumentsController < ApplicationController
 
   def set_document
     @document = Document.find(params[:id])
+  end
+
+  def set_users
+    @users = User.all
   end
 
   def document_params
