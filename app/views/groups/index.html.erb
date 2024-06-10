@@ -27,7 +27,7 @@
                   <%= link_to group.title, group_path(group), style: 'color: #6a1b9a;' %>
                 </td>
                 <td class="text-center">
-                  <%= button_to group_path(group), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm mx-2', style: 'border-radius: 12px; padding: 4px 8px; color: #d32f2f; border-color: #d32f2f;' do %>
+                  <%= button_to group_path(group), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm mx-2', style: 'border-radius: 12px; padding: 4px 8px; color: #d32f2f;border-color: #d32f2f;' do %>
                     <i class="fas fa-trash-alt"></i> Delete
                   <% end %>
                 </td>
