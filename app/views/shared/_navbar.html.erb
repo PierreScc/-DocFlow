@@ -17,18 +17,13 @@
       <%= simple_form_for Document.new do |f| %>
         <%= f.input :photo, as: :file %>
         <%= f.input :title %>
-        <%= f.input :category %>
-        <%= f.input :comment %>
+        <%= f.input :category, collection: ['Family', 'Personal', 'Professional'] %>
         <%= f.association :group %>
         <%= f.button :submit %>
       <% end %>
   </div>
 
-
-
   <i class="fa-regular fa-comment"></i>
-
-
   <% if user_signed_in? %>
     <i class="fa-regular fa-user"></i>
   <% else %>

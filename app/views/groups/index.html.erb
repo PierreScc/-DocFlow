@@ -4,5 +4,11 @@
 <% @groups.each do |group| %>
   <div>
     <h3><%= link_to group.title, group_path(group) %></h3>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <% if group.photo.attached? %>
+    <%= image_tag url_for(group.photo), class: "image-doc" %>
+  <% end %>
+</div>
+    </div>
   </div>
 <% end %>
