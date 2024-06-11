@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :user_groups, only: [:create]
   end
 
-  resources :documents, only: [:destroy, :index, :create] do
+  resources :documents, only: [:destroy, :index, :create, :show] do
     resources :comments, only: [:create]
     resources :assignements, only: [:new, :create]
   end
