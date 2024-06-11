@@ -20,16 +20,20 @@ class AssignementsController < ApplicationController
   def create
     @group = @document.group
     user_ids = assignement_params[:user_ids].reject(&:blank?)
+    errors = false
 
     user_ids.each do |user_id|
       @assignement = @document.assignements.new(user_id: user_id, comment: assignement_params[:comment])
       unless @assignement.save
+        errors = true
         @users = User.all
         render :new
       end
     end
 
-    redirect_to group_document_path(@group, @document), notice: 'Assignements were successfully created.'
+    unless errors
+      redirect_to group_document_path(@group, @document), notice: 'Assignements were successfully created.'
+    end
   end
 
   def edit

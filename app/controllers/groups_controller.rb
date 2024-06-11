@@ -9,6 +9,7 @@ class GroupsController < ApplicationController
     @messages = @group.messages.order(created_at: :asc)
     @message = Message.new
     @users = User.all
+    Rails.logger.debug("Messages: #{@messages.inspect}")
   end
 
   def create
@@ -42,7 +43,6 @@ class GroupsController < ApplicationController
   def set_group
     @group = Group.find(params[:id])
   end
-
 
   def group_params
     params.require(:group).permit(:title, :photo, :category)
