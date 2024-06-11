@@ -9,7 +9,6 @@ class GroupsController < ApplicationController
     @messages = @group.messages.order(created_at: :asc)
     @message = Message.new
     @users = User.all
-    Rails.logger.debug("Messages: #{@messages.inspect}")
   end
 
   def create
