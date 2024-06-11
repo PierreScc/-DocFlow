@@ -18,6 +18,12 @@
   </head>
 
   <body>
+    
+    <% unless controller_name == 'landing' && action_name == 'index' %>
+      <%= render "shared/navbar" %>
+    <% end %>
+    <%= render "shared/flashes" %>
+
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
   <body style="background-color: #222222;">

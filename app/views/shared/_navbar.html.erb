@@ -1,5 +1,6 @@
+ 
 <div class="navbar" data-controller="navbar">
-  <%= link_to root_path, class: controller_name == "pages" && action_name == "home" ? "active" : "" do %>
+  <%= link_to home_path, class: controller_name == "pages" && action_name == "home" ? "active" : "" do %>
     <i class="fa-solid fa-house"></i>
   <% end %>
 
