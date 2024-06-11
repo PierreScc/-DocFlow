@@ -1,5 +1,6 @@
+<!-- app/views/shared/_navbar.html.erb -->
 <div class="navbar" data-controller="navbar">
-  <%= link_to root_path, class: controller_name == "pages" && action_name == "home" ? "active" : "" do %>
+  <%= link_to home_path, class: controller_name == "pages" && action_name == "home" ? "active" : "" do %>
     <i class="fa-solid fa-house"></i>
   <% end %>
 
@@ -7,7 +8,6 @@
     <i class="fa-regular fa-folder-open"></i>
   <% end %>
   <a class="icon-button plus-btn" data-bs-toggle="modal" data-bs-target="#addDocumentModal">
-
     <i class="fa-solid fa-plus"></i>
   </a>
 
