@@ -14,8 +14,9 @@
     <%= render 'shared/ios_pwa_links' %>
   </head>
 
-  <body style="background-color: #222222;">
-
+    <body style="background-color: #222222;">
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
     <% unless controller_name == 'landing' && action_name == 'index' %>
       <%= render "shared/navbar" %>
     <% end %>

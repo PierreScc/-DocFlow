@@ -10,3 +10,21 @@
   box-sizing: border-box;
   text-align: center;
 }
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 20px;
+  color: var(--bs-card-color);
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.doc-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}

@@ -4,5 +4,8 @@ class PagesController < ApplicationController
   def home
     @document = Document.new
     @group = Group.new
+    @documents = current_user.documents
+    @groups = current_user.groups
   end
+
 end
