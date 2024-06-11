@@ -81,3 +81,19 @@ input[type="submit"] {
   position:relative;
 
 }
+
+.home-groups{
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  width: 100vw;
+}
+
+.groups-container{
+  overflow: hidden;
+}
+
+.doc-home {
+  width: 94%;
+}

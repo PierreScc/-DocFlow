@@ -20,7 +20,7 @@
                                 <td style="font-weight: bold; font-size: 1.2rem; color: #6a1b9a;">
                                     <%= link_to document.title, group_document_path(document.group, document), style: 'color: inherit; text-decoration: none;' %>
                                 </td>
-                                <td style="font-size: 1rem; text-decoration: underline; color: #ab47bc;"><%= document.category %></td>
+                                <td style="font-size: 1rem; text-decoration: none; color: #ab47bc;"><%= document.category %></td>
                                 <td class="text-center">
                                     <%= button_to document_path(document), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm mx-2', form: { 'data-turbo': 'false' }, style: 'border-radius: 12px; padding: 4px 8px; color: #d32f2f; border-color: #d32f2f;' do %>
                                         <i class="fas fa-trash-alt"></i>
