@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= favicon_link_tag "icons/android-icon-192x192.png" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%#= javascript_include_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -17,16 +14,12 @@
     <%= render 'shared/ios_pwa_links' %>
   </head>
 
-  <body>
-    
+  <body style="background-color: #222222;">
+
     <% unless controller_name == 'landing' && action_name == 'index' %>
       <%= render "shared/navbar" %>
     <% end %>
     <%= render "shared/flashes" %>
-
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-  <body style="background-color: #222222;">
 
     <%= yield %>
   </body>
