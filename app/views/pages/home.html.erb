@@ -7,6 +7,7 @@
   </a>
 </div>
 
+
 <h2>My last Group</h2>
 <div class="groups-container">
   <div class="row home-groups">
@@ -17,7 +18,8 @@
               <% if group.photo.attached? %>
                 <div style="display: flex; align-items: center;">
                   <%= image_tag url_for(group.photo), class: "image-doc", style: "margin-right: 10px;" %>
-                  <div class="doc-title" style="font-weight: bold; color: #6A1B9A;">
+                  <div class="doc-title" style="font-weight: bold; color: #6a1b9a;">
+
                     <%= group.title %>
                   </div>
                 </div>
@@ -29,6 +31,15 @@
   </div>
 </div>
 
+
+<div class="menu_create" data-controller="home">
+  <a class="icon-button" data-bs-toggle="modal" data-bs-target="#addGroupModal">
+  <i class="fa-solid fa-people-roof"></i>
+  </a>
+</div>
+
+
+
 <h2>My last Document</h2>
 <div class="doc-home" style="">
   <% @documents.each do |document| %>
@@ -39,7 +50,8 @@
             <% if document.photo.attached? %>
               <div style="display: flex; align-items: center;">
                 <%= image_tag url_for(document.photo), class: "image-doc", style: "margin-right: 10px;" %>
-                <div class="doc-title" style="font-weight: bold; color: #6A1B9A;">
+                <div class="doc-title" style="font-weight: bold; color: #6a1b9a;">
+
                   <%= document.title %>
                 </div>
               </div>
