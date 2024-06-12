@@ -25,7 +25,7 @@ body {
   border-radius: 50%;
   padding: 0px;
   padding: 10px;
-  
+
   .fa-plus {
     font-size: 40px !important;
   }
@@ -66,6 +66,8 @@ body {
   margin-bottom: 15px;
 }
 
+/* app/assets/stylesheets/application.css */
+
 .navbar {
   background-color: #536EFD;
   position: fixed;
@@ -78,12 +80,16 @@ body {
   border-radius: 50px;
 }
 
-.navbar a {
+.navbar a,
+.navbar i {
   display: block;
   color: #fbf9fc;
   text-align: center;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 24px;
+  padding: 10px;
+  flex: 1;
+  text-align: center;
 }
 
 .navbar a.active {
@@ -91,25 +97,23 @@ body {
   border-radius: 50px;
 }
 
-.navbar i {
-  color: rgb(247, 246, 247);
-  font-size: 24px;
-  padding: 10px;
+.icon-button.plus-btn,
+.icon-button.see-all-btn {
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
 }
 
-.navbar a[href="#Add"] i {
-  font-size: 45px;
-  color: rgb(255, 255, 255);
+.modal-dialog-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100% - 1rem);
 }
 
-.btn.btn-outline-light {
-  background-color: #ffffff;
-  border: 1px solid #ffffff;
-  border-radius: 25px;
+.modal-body.text-center a {
+  display: inline-block;
+  width: 100%;
+  margin: 10px 0;
 }
 
-.btn.btn-outline-light h2 {
-  margin: 0;
-  font-size: 16px;
-  color: #4c013d;
-}
