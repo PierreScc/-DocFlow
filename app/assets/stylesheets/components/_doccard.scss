@@ -12,19 +12,31 @@
 }
 
 .card-body {
-  flex: 1 1 auto;
-  padding: 20px;
-  color: var(--bs-card-color);
+  padding: 10px;
 }
 
 .card {
   display: flex;
   justify-content: center;
   border-radius: 20px;
+  background-color: #575757;
 }
 
 .doc-title {
   font-size: 1.5rem;
   font-weight: 700;
   text-decoration: none;
+}
+
+.card-group {
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #536EFD;
+}
+
+.card-home-doc {
+    display: flex;
+    height: 100px;
+    padding: 10px;
 }
