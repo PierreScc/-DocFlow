@@ -74,6 +74,16 @@ input[type="submit"] {
 
 }
 
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.logo img {
+  max-width: 100px;
+  height: auto;
+}
 
 .icon-button i {
   font-size: 25px;
@@ -106,4 +116,44 @@ input[type="submit"] {
   font-style: bold;
   width: 100%;
   margin-left: 1em;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Rajdhani', sans-serif;
+  background-color: #f0f0f0;
+}
+
+
+.img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+h1 {
+  margin-top: 30px;
+  margin-bottom: 200px;
+  font-size: 2.5rem;
+  color: white;
+  background-color: #3855ea;
+  border: none;
+  border-radius: 50px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 15rem;
+  padding: 10px 20px;
+  font-size: 2rem;
+  color: #fff;
+  background-color: #3855ea;
+  border: solid;
+  border-radius: 50px;
 }
