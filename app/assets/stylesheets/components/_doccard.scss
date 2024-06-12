@@ -29,14 +29,13 @@
 }
 
 .card-group {
-  display: flex;
   justify-content: center;
   border-radius: 20px;
   background-color: #536EFD;
+  height: 100%;
 }
 
 .card-home-doc {
-    display: flex;
-    height: 100px;
+    height: 110px;
     padding: 10px;
 }

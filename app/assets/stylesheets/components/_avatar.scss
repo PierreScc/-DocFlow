@@ -1,7 +1,18 @@
-.avatar {
-  width: 40px;
-  border-radius: 50%;
+.avatar-container {
+  height: 50px; /* Adjust the height based on your avatar size */
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
 }
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
 .avatar-large {
   width: 56px;
   border-radius: 50%;
@@ -17,4 +28,8 @@
   border-radius: 0px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+}
+
+.avatar:not(:first-child) {
+  margin-left: -20px;
 }
