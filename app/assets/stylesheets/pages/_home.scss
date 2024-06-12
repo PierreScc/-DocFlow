@@ -158,3 +158,53 @@ h1 {
   border: solid;
   border-radius: 50px;
 }
+
+
+.chat-container {
+  max-width: 400px;
+  margin: 200px auto 0; /* Adjust the top margin to position it lower */
+  padding: 17px;
+  border: 1px solid #fad70417;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 200px; /* Adjust the height as needed */
+}
+
+
+
+.chat-container .message {
+  max-width: 15%;
+  margin-bottom: 25px;
+  padding: 5px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.chat-container .my-message {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
+}
+
+.chat-container .other-message {
+  background-color: #f0f0f0;
+  color: #333;
+  align-self: flex-end; /* Align to the right side */
+}
+
+.chat-container .sender {
+  position: absolute;
+  top: -20px;
+  right: 0; /* Align sender name to the right side */
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fcfcfc;
+}
+.send-message {
+  width: 85%;
+  height: 35px;
+  margin-left: 45px;
+  margin-bottom: 30px;
+
+}
