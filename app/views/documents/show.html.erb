@@ -2,7 +2,7 @@
    Details
 </h1>
 
-<div class="container" style="max-width: 400px; margin: 41px auto; background-color: #EEE7ED; border-radius: 25px; padding: 20px; height: calc(85vh - 80px); overflow: hidden; position: relative;">
+<div class="container" style="max-width: 400px; margin: 41px auto; background-color: #EEE7ED; border-radius: 25px; padding: 20px; height: calc(72vh - 80px); overflow: hidden; position: relative;">
   <% if @document.photo.present? && @document.photo.key.present? %>
     <div class="h-40 mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(@document.photo.key, height: 300, crop: :fill) %>'); height: 20vh; border-radius: 25px; background-size: cover; background-position: center;">
     </div>
