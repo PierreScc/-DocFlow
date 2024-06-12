@@ -18,11 +18,11 @@
       </button>
     </div>
   </div>
-<div class="row home-groups">
+<div class="show row home-groups">
   <% @documents.each do |document| %>
     <div class="mb-2 w-75">
       <%= link_to document_path(document), style: "text-decoration: none; color: inherit;", class: "group-card-caroussel w-100" do %>
-        <div class="card" style="width: 100%;">
+        <div class="card" style="width: 90%;">
           <div class="card-body">
             <% if document.photo.attached? %>
               <div style="display: flex; align-items: center;">
@@ -67,7 +67,7 @@
   <%= form_with(model: [@group, @message], local: true) do |form| %>
     <div style="display: flex; align-items: center;">
       <%= form.text_area :content, rows: 1, class: "form-control", placeholder: "Type here...", style: "height: 55px; border-radius: 20px; padding: 10px;" %>
-      <%= form.submit "Send", class: "btn btn-primary", style: "margin-left: 10px; height: 55px; border-radius: 20px; padding: 10px 20px;" %>
+      <%= form.submit "Send", class: "send btn-primary", style: "margin-left: 10px; height: 55px; border-radius: 20px; padding: 10px 20px;" %>
     </div>
   <% end %>
 </div>
