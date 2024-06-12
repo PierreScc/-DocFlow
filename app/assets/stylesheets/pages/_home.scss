@@ -115,7 +115,7 @@ input[type="submit"] {
   font-size: 35px;
   padding-top: 10px;
   font-style: bold;
-  width: 100%;
+  width: 93%;
   margin-left: 1em;
 }
 
@@ -164,7 +164,7 @@ h1 {
   max-width: 400px;
   margin: 200px auto 0; /* Adjust the top margin to position it lower */
   padding: 17px;
-  border: 1px solid #fad70417;
+  border: 3px solid #5e5def75;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
@@ -178,11 +178,10 @@ h1 {
   margin-bottom: 25px;
   padding: 5px;
   border-radius: 20px;
-  position: relative;
 }
 
 .chat-container .my-message {
-  background-color: #007bff;
+  background-color: #525559;
   color: white;
   align-self: flex-end;
 }
