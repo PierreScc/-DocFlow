@@ -17,11 +17,26 @@
     <%= render 'shared/ios_pwa_links' %>
   </head>
 
-  <body style="background-color: #222222;">
-    <% unless controller_name == 'landing' && action_name == 'index' %>
-      <%= render "shared/navbar" %>
-    <% end %>
-    <%= render "shared/flashes" %>
-    <%= yield %>
-  </body>
+
+    .logo {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    .logo img {
+      max-width: 100px;
+      height: auto;
+    }
+  </style>
+</head>
+<body style= "background-color:#222222">
+  <div class="logo" >
+  <%= link_to image_tag('logodocflow.png', alt: 'Landing Page Image'), home_path %>
+  </div>
+  <% unless controller_name == 'landing' && action_name == 'index' %>
+    <%= render "shared/navbar" %>
+  <% end %>
+  <%= render "shared/flashes" %>
+  <%= yield %>
+</body>
 </html>
