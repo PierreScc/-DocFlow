@@ -7,17 +7,40 @@
   <%= link_to documents_path, class: controller_name == "documents" && action_name == "index" ? "active" : "" do %>
     <i class="fa-regular fa-folder-open"></i>
   <% end %>
-  <a class="icon-button plus-btn" data-bs-toggle="modal" data-bs-target="#addDocumentModal">
+
+  <a class="icon-button plus-btn" data-bs-toggle="modal" data-bs-target="#addOptionsModal">
     <i class="fa-solid fa-plus"></i>
   </a>
 
-  <i class="fa-regular fa-comment"></i>
+  <%= link_to groups_path, class: "icon-button see-all-btn" do %>
+    <i class="fa-solid fa-people-roof"></i>
+  <% end %>
 
   <% if user_signed_in? %>
     <i class="fa-regular fa-user"></i>
   <% else %>
     <%= link_to 'Login', new_user_session_path %>
   <% end %>
+</div>
+
+<!-- Add Options Modal -->
+<div class="modal fade" id="addOptionsModal" tabindex="-1" aria-labelledby="addOptionsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addOptionsModalLabel">Choose Options</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <a class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addDocumentModal" data-bs-dismiss="modal">
+          Add Document
+        </a>
+        <a class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addGroupModal" data-bs-dismiss="modal">
+          Add Group
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Add Document Modal -->
@@ -47,3 +70,32 @@
     </div>
   </div>
 </div>
+
+<!-- Add Group Modal -->
+<div class="modal fade" id="addGroupModal" tabindex="-1" aria-labelledby="addGroupModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addGroupModalLabel">Add Group</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for Group.new do |f| %>
+          <div class="mb-3">
+            <%= f.input :photo, as: :file %>
+          </div>
+          <div class="mb-3">
+            <%= f.input :title %>
+          </div>
+          <div class="mb-3">
+            <%= f.input :category, collection: ['Family', 'Personal', 'Professional'] %>
+          </div>
+          <div class="mb-3">
+            <%= f.button :submit, class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
