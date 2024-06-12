@@ -162,13 +162,12 @@ h1 {
 
 .chat-container {
   max-width: 400px;
-  margin: 200px auto 0; /* Adjust the top margin to position it lower */
+  margin: 50px auto 30px;
   padding: 17px;
   border: 3px solid #5e5def75;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
   overflow-y: auto;
-  max-height: 200px; /* Adjust the height as needed */
+  max-height: 180px;
 }
 
 
@@ -195,7 +194,7 @@ h1 {
 .chat-container .sender {
   position: absolute;
   top: -20px;
-  right: 0; /* Align sender name to the right side */
+  right: 20px; /* Align sender name to the right side */
   text-align: center;
   font-size: 1.2rem;
   color: #fcfcfc;
@@ -203,7 +202,11 @@ h1 {
 .send-message {
   width: 85%;
   height: 35px;
-  margin-left: 45px;
+  margin-left: 30px;
   margin-bottom: 30px;
 
+}
+
+.show.row.home-groups {
+padding-top: 20px;
 }
