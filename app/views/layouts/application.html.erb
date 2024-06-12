@@ -1,24 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>DocFlow</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= favicon_link_tag "icons/android-icon-192x192.png" %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
-    <%= render 'shared/ios_pwa_links' %>
-  </head>
+<head>
+  <title>DocFlow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= favicon_link_tag "icons/android-icon-192x192.png" %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <%= render 'shared/ios_pwa_links' %>
+  <style>
 
-  <body style="background-color: #222222;">
-    <% unless controller_name == 'landing' && action_name == 'index' %>
-      <%= render "shared/navbar" %>
-    <% end %>
-    <%= render "shared/flashes" %>
-    <%= yield %>
-  </body>
+    .logo {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    .logo img {
+      max-width: 100px;
+      height: auto;
+    }
+  </style>
+</head>
+<body style= "background-color:#222222">
+  <div class="logo" >
+  <%= link_to image_tag('logodocflow.png', alt: 'Landing Page Image'), home_path %>
+  </div>
+  <% unless controller_name == 'landing' && action_name == 'index' %>
+    <%= render "shared/navbar" %>
+  <% end %>
+  <%= render "shared/flashes" %>
+  <%= yield %>
+</body>
 </html>
