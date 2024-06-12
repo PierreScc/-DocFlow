@@ -2,11 +2,6 @@
 <div class="top-bar" style="position: absolute; top: 0; right: 0;">
   <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" style="margin-right: 20px; margin-top: 20px;" >
 </div>
-<div class="menu_create" data-controller="home">
-  <a class="icon-button" data-bs-toggle="modal" data-bs-target="#addGroupModal">
-    <i class="fa-solid fa-people-roof"></i>
-  </a>
-</div>
 
 <h2 class="title">My Groups</h2>
 <div class="groups-container">
@@ -58,10 +53,6 @@
     </div>
   <% end %>
 </div>
-
-<a href="<%= groups_path %>" class="btn btn-outline-light">
-  <h2>See all</h2>
-</a>
 
 <div class="modal fade" id="addGroupModal" tabindex="-1" aria-labelledby="addGroupModalLabel" aria-hidden="true">
   <div class="modal-dialog">
