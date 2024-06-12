@@ -1,6 +1,6 @@
 <%# <h1 class="members-title">Members</h1> %>
 
-<div class="d-flex flex-direction-column align-items-center justify-content-between row pt-3 px-3" style="height: 100vh; padding-bottom: 10vh;">
+<div class="d-flex flex-direction-column align-items-center justify-content-between row pt-3 px-3" style="height: 82vh; padding-bottom: 10vh; w-100%">
   <div>
     <div class="d-flex align-items-center justify-content-center">
       <% @group.users.each do |user| %>
@@ -8,17 +8,40 @@
           <% if user.photo.attached? %>
             <%= image_tag url_for(user.photo), class: "avatar", alt: "avatar" %>
           <% end %>
-          <p class="username"><%= user.username %></p>
+          <p class="username" style="color: white;"><%= user.username %></p>
         </div>
       <% end %>
     </div>
     <div class="d-flex align-items-center justify-content-center">
-      <%= link_to "Voir tous les documents", documents_path, class: "text-white px-3" %>
       <button type="button" class="button-34" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Add members
       </button>
     </div>
   </div>
+<div class="row home-groups">
+  <% @documents.each do |document| %>
+    <div class="mb-2 w-75">
+      <%= link_to document_path(document), style: "text-decoration: none; color: inherit;", class: "group-card-caroussel w-100" do %>
+        <div class="card" style="width: 100%;">
+          <div class="card-body">
+            <% if document.photo.attached? %>
+              <div style="display: flex; align-items: center;">
+                <%= image_tag url_for(document.photo), class: "image-doc-home", style: "margin-right: 10px;" %>
+                <div>
+                  <div class="doc-title" style="font-weight: bold; color: white;">
+                    <%= document.title %>
+                  </div>
+                  <% if document.group %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
      <div class="chat-container">
     <% if @messages.count == 0 %>

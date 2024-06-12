@@ -9,6 +9,7 @@ class GroupsController < ApplicationController
     @messages = @group.messages.includes(:user).order(created_at: :asc)
     @message = Message.new
     @users = User.all
+    @documents = @group.documents
   end
 
   def create

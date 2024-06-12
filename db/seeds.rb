@@ -6,21 +6,41 @@ User.destroy_all
 Group.destroy_all
 
 puts "Creating users..."
-icons = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqE3FvDvArNbK5DiMh88hYQgYfJqz8oM5xEw&s",
-         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpzjtaLlYumGfxyzb1ipEckPEMJE1oPCmWfg&s",
-         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAZbBJu2_ploZkylQSQcuVLrK_sUDbYVv00w&s",
-         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyFeHQjv1xdW2PvI_xmNF9IFkEiBIxMtrN7g&s",
-         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIfBrTzjblqtKxXgRcDV63uJjYq29SC9WvBg&s"]
-icons.each do |icon|
-  user = User.new(
-    username: Faker::Name.first_name,
-    email: Faker::Internet.email,
-    password: "123456"
-  )
-  file = URI.open(icon)
-  user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-  user.save!
-end
+# icons = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqE3FvDvArNbK5DiMh88hYQgYfJqz8oM5xEw&s",
+#          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpzjtaLlYumGfxyzb1ipEckPEMJE1oPCmWfg&s",
+#          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAZbBJu2_ploZkylQSQcuVLrK_sUDbYVv00w&s",
+#          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyFeHQjv1xdW2PvI_xmNF9IFkEiBIxMtrN7g&s",
+#          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIfBrTzjblqtKxXgRcDV63uJjYq29SC9WvBg&s"]
+# icons.each do |icon|
+#   user = User.new(
+#     username: Faker::Name.first_name,
+#     email: Faker::Internet.email,
+#     password: "123456"
+#   )
+#   file = URI.open(icon)
+#   user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+#   user.save!
+# end
+
+user = User.new(email: "victor@test.com", password: "123456", username: "Victor")
+file = URI.open("https://avatars.githubusercontent.com/u/157797158?v=4")
+user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user.save!
+
+user = User.new(email: "diane@test.com", password: "123456", username: "Diane")
+file = URI.open("https://ca.slack-edge.com/T02NE0241-UDF8DJTMM-7c86d3baa559-512")
+user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user.save!
+
+user = User.new(email: "denzel@test.com", password: "123456", username: "Denzel")
+file = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjZep62a4fuAS_rUx9kjYk5TRBsVqsjQ-CWQ&s")
+user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user.save!
+
+user = User.new(email: "rihanna@test.com", password: "123456", username: "Rihanna")
+file = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrWn8rZENm5oOLxW46htiZAPxBjZ1KQdGIPhVjxPwFKKAKxz_TiF7uIV1D4Z5xZEj91DA&usqp=CAU")
+user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user.save!
 
 user = User.new(email: "clement@test.com", password: "123456", username: "Clement")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U06TGAB5T7C-7927c68befc2-512")
