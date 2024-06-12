@@ -12,15 +12,17 @@
       flex-direction: column;
       min-height: 100vh;
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Rajdhani', sans-serif;
       background-color: #f0f0f0;
     }
+
 
     .img img {
       width: 100%;
       height: auto;
       border-radius: 10px;
     }
+
     h1 {
       margin-top: 30px;
       margin-bottom: 200px;
@@ -34,23 +36,23 @@
     .btn {
       display: inline-block;
       margin-top: 20px;
-      margin-left: 10rem;
+      margin-left: 15rem;
       padding: 10px 20px;
       font-size: 2rem;
       color: #fff;
       background-color: #3855ea;
-      border: none;
+      border: solid;
       border-radius: 50px;
     }
   </style>
 </head>
 <body>
-  <h1> DOC Flow </h1>
+
   <div class="img">
     <%= image_tag 'folder2.png', alt: 'Landing Page Image' %>
   </div>
-<a href="<%= home_path %>" class="btn">
-  <i class="fa-solid fa-arrow-right"></i>
-</a>
+  <a href="<%= home_path %>" class="btn">
+    <i class="fa-solid fa-arrow-right"></i>
+  </a>
 </body>
 </html>
