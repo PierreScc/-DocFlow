@@ -1,34 +1,44 @@
 <!-- app/views/assignements/new.html.erb -->
-<h1 class="page-title">New Assignment</h1>
-
-<%= simple_form_for([@document, @assignement], html: { class: 'assignment-form w-100 px-4' }) do |form| %>
-  <% if @assignement.errors.any? %>
-    <div id="error_explanation" class="error-messages">
-      <h2><%= pluralize(@assignement.errors.count, "error") %> prohibited this assignment from being saved:</h2>
-      <ul>
-        <% @assignement.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class="container" style="max-width: 400px; margin: 0 auto 80px auto; background-color: #EEE7ED; border-radius: 25px; padding: 20px; height: calc(77vh - 80px); overflow-y: auto; position: relative; margin-bottom: 40px">
+  <form action="<%= document_assignements_path(@document) %>" method="post" class="w-100 px-4">
+    <div style="position: absolute; top: 10px; right: 10px;">
+      <%= link_to group_document_path(@document.group, @document), class: "text-dark", style: "text-decoration: none;" do %>
+        <div style="width: 2.5rem; height: 2.5rem; border-radius: 50%; background-color: #536EFD; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+          <i class="fa-solid fa-times" style="font-size: 1.5rem; color: white;"></i>
+        </div>
+      <% end %>
     </div>
-  <% end %>
 
-  <div class="form-group">
-    <%= form.label :user_ids, "Assign to" %><br>
-    <% @users.each do |user| %>
-      <div class="form-check">
-        <%= check_box_tag 'assignement[user_ids][]', user.id, false, class: 'form-check-input', id: "user_#{user.id}" %>
-        <%= label_tag "user_#{user.id}", user.username, class: 'form-check-label' %>
+    <% if @assignement.errors.any? %>
+      <div id="error_explanation" class="error-messages">
+        <h2><%= pluralize(@assignement.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+        <ul>
+          <% @assignement.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
       </div>
     <% end %>
-  </div>
 
-  <div class="form-group">
-    <%= form.input :comment, class: 'form-control' %>
-  </div>
+    <div class="form-group">
+      <label for="assignement_user_ids" style="font-size: 1.8rem; font-weight: bold; color: #536EFD; margin-bottom: 15px;">Assign to</label><br>
+      <div style="margin-bottom: 20px; margin-top: 20px">
+        <% @users.each do |user| %>
+          <div class="form-check" style="margin-bottom: 10px">
+            <input type="checkbox" name="assignement[user_ids][]" value="<%= user.id %>" class="form-check-input" id="user_<%= user.id %>">
+            <label for="user_<%= user.id %>" class="form-check-label"><%= user.username %></label>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
-  <div class="form-actions">
-    <%= link_to 'Back', group_document_path(@document.group, @document), class: "btn btn-secondary" %>
-    <%= form.submit 'Assign', class: 'btn btn-primary' %>
-  </div>
-<% end %>
+    <div class="form-group">
+      <label for="assignement_comment">Comment</label>
+      <textarea name="assignement[comment]" id="assignement_comment" class="form-control"></textarea>
+    </div>
+
+    <div class="form-actions d-flex justify-content-center">
+      <input type="submit" value="Assign" class="btn btn-primary mx-3" style="background-color: #536EFD; border-color: #536EFD;">
+    </div>
+  </form>
+</div>
