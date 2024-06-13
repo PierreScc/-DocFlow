@@ -210,24 +210,15 @@ padding-top: 20px;
   margin: 8px;
 }
 
-.doc-home{
-  max-height: 360px;
-}
-
 .container-doc-home{
-  background-color: rgba(255, 255, 255, 0);
   max-height: 345px;
   overflow-y: auto;
   margin-bottom: 50px;
-  margin-left: 25px;
-  width: 400px;
-
-
-
-.form-example-members {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+  width: 400px
 }
 
-
+.form-example-members{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
