@@ -8,7 +8,7 @@
     <i class="fa-regular fa-folder-open"></i>
   <% end %>
 
-  <a class="icon-button plus-btn" data-bs-toggle="modal" data-bs-target="#addOptionsModal">
+  <a class="icon-button plus-btn" data-bs-toggle="modal" data-bs-target="#<%= controller_name == 'groups' && action_name == 'show' ? 'addDocumentModal' : 'addOptionsModal' %>">
     <i class="fa-solid fa-plus"></i>
   </a>
 
