@@ -211,14 +211,18 @@ padding-top: 20px;
 }
 
 .container-doc-home{
-  max-height: 345px;
   overflow-y: auto;
-  margin-bottom: 50px;
-  width: 400px
+  margin-bottom: 0px;
+  width: 400px;
+  height: 315px;
 }
 
 .form-example-members{
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+}
+
+.card-body-home {
+  margin: 5px;
 }
