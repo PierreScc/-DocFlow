@@ -85,7 +85,7 @@
         </div>
         <form action="<%= group_user_groups_path(@group) %>" method="post" class="form-example">
           <div class="modal-body">
-            <div class="form-example">
+            <div class="form-example-members">
               <% @users.each do |user| %>
                 <div>
                   <input type="checkbox" id="user_<%= user.id %>" name="user_id[]" value="<%= user.id %>" />
@@ -103,4 +103,3 @@
     </div>
   </div>
 </div>
-
