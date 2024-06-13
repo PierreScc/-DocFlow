@@ -1,33 +1,30 @@
-<h1 class="text-center my-6" style="font-size: 2.5rem; color: #d4b6d3; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; position: sticky; top: 0; background-color: rgba(238, 231, 237, 0); z-index: 1020;>
+<h1 class="text-center my-6" style="font-size: 2.5rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; position: sticky; top: 0; background-color: rgba(238, 231, 237, 0); z-index: 1020;">
   <i class="fas fa-users"></i> Groups
 </h1>
 
-<div class="container" style="max-width: 400px; margin: 41px auto; background-color: #EEE7ED; border-radius: 25px; padding: 20px; height: calc(70vh - 80px); overflow: hidden; position: relative;">
+<div class="container" style="max-width: 400px; margin: 41px auto; background-color: inherit; border-radius: 25px; padding: 20px; height: calc(70vh - 80px); overflow-y: auto; position: relative;">
   <div class="row">
     <div class="col-12">
-      <div class="table-container" style="border-radius: 25px; overflow: auto; height: calc(100vh - 210px);">
-        <table class="table table-hover table-bordered table-striped align-middle" style="border-radius: 25px; overflow: hidden;">
-          <thead style="background-color: #8e24aa; color: #ffffff;">
-            <tr>
-              <th scope="col">Group Title</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @groups.each do |group| %>
-              <tr>
-                <td style="font-weight: bold; font-size: 1.2rem; color: #6a1b9a; border-bottom: none;">
-                  <div style="display: flex; justify-content: flex-start; align-items: flex-start;">
-                    <% if group.photo.attached? %>
-                      <%= image_tag url_for(group.photo), class: "image-doc" %>
-                    <% end %>
-                    <%= link_to group.title, group_path(group), style: 'color: #6a1b9a; text-decoration: none; margin-left: 10px;' %>
-                  </div>
-                </td>
-              </tr>
+      <% @groups.each do |group| %>
+        <div class="card mb-3" style="border-radius: 25px; overflow: hidden; background-color: inherit;">
+          <% if group.photo.present? && group.photo.key.present? %>
+            <%= link_to group_path(group), style: 'text-decoration: none; color: inherit;' do %>
+              <div class="h-40" style="position: relative; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.85)), url('<%= cl_image_path(group.photo.key, height: 300, crop: :fill) %>'); height: 12vh; background-size: cover; background-position: center;">
+                <div style="position: absolute; bottom: 20px; left: 20px; color: white; font-weight: bold; font-size: 1.5rem;">
+                  <%= group.title %>
+                </div>
+              </div>
             <% end %>
-          </tbody>
-        </table>
-      </div>
+          <% else %>
+            <div class="h-40 d-flex align-items-center justify-content-center" style="background-color: grey; height: 20vh; border-radius: 25px;">
+              <%= link_to group_path(group), style: 'text-decoration: none; color: inherit;' do %>
+                <p class="text-center text-white">No photo available</p>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
+
