@@ -1,3 +1,4 @@
+<!-- app/views/documents/show.html.erb -->
 <h1 class="text-center my-6" style="font-size: 2.5rem; color: #d4b6d3; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; position: sticky; top: 0; background-color: rgba(238, 231, 237, 0); z-index: 1020;">
    Details
 </h1>
@@ -28,7 +29,7 @@
         </ul>
       <% end %>
       <div class="fixed-bottom-icons" style="display: flex; justify-content: center;">
-        <%= link_to documents_path, class: 'btn btn-outline-primary btn-sm mx-2', style: 'border-radius: 12px; padding: 6px 12px; color: #6a1b9a; border-color: #6a1b9a;' do %>
+        <%= link_to group_path(@document.group), class: 'btn btn-outline-primary btn-sm mx-2', style: 'border-radius: 12px; padding: 6px 12px; color: #6a1b9a; border-color: #6a1b9a;' do %>
           <i class="fa-solid fa-arrow-left"></i>
         <% end %>
         <%= link_to 'Assign', new_document_assignement_path(@document), class: 'btn btn-outline-primary btn-sm mx-2', style: 'border-radius: 12px; padding: 6px 12px; color: #6a1b9a; border-color: #6a1b9a;' %>
@@ -58,3 +59,4 @@
     </div>
   </div>
 </div>
+
