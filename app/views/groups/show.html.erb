@@ -7,7 +7,7 @@
       <% @group.users.each do |user| %>
         <div class="member text-center px-2">
           <% if user.photo.attached? %>
-            <%= image_tag url_for(user.photo), class: "avatar", alt: "avatar" %>
+            <%= cl_image_tag user.photo.key, class: "avatar", alt: "avatar" %>
           <% end %>
           <p class="username" style="color: white;"><%= user.username %></p>
         </div>
@@ -28,7 +28,7 @@
             <div class="card-body">
               <% if document.photo.attached? %>
                 <div style="display: flex; align-items: center;">
-                  <%= image_tag url_for(document.photo), class: "image-doc-home", style: "margin-right: 10px;" %>
+                  <%= cl_image_tag document.photo.key, class: "image-doc-home", style: "margin-right: 10px;" %>
                   <div>
                     <div class="doc-title" style="font-weight: bold; color: white;">
                       <%= document.title %>
