@@ -1,6 +1,7 @@
-<%# <h1 class="members-title">Members</h1> %>
-
-<div class="d-flex flex-direction-column align-items-center justify-content-between row pt-3 px-3" style="height: 82vh; padding-bottom: 10vh; w-100%">
+<div style= "display: flex; justify-content: center; font-family: Inter, sans-serif; color: white; font-size: 35px; padding-top: 10px;font-style: bold; width: 93%; margin-top: 90px;">
+<%= @group.title %>
+</div>
+<div class="d-flex flex-direction-column align-items-center justify-content-between row pt-3" style="height: 82vh; padding-bottom: 10vh; w-100%">
   <div>
     <div class="d-flex align-items-center justify-content-center">
       <% @group.users.each do |user| %>
@@ -18,7 +19,7 @@
       </button>
     </div>
   </div>
-<div class="show row home-groups">
+<div class="show row home-groups" style="padding-left: 28px;">
   <% @documents.each do |document| %>
     <div class="mb-2 w-75">
       <%= link_to document_path(document), style: "text-decoration: none; color: inherit;", class: "group-card-caroussel w-100" do %>
