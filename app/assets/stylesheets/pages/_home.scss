@@ -209,3 +209,28 @@ padding-top: 20px;
 .chat-container p {
   margin: 8px;
 }
+
+.container_home {
+  background-color: rgba(255, 255, 255, 0);
+  max-height: 345px;
+  width: 410px;
+  overflow-y: auto;
+  margin-left: 26px;
+  margin-bottom: 53px;
+}
+
+.card-body-home {
+  max-height: 200px;
+  padding:10px;
+
+}
+
+.form-example-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.p_home {
+  margin: 0px;
+}

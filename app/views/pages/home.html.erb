@@ -27,16 +27,17 @@
   </div>
 </div>
 
-<div style="font-size: 50px;">
+<div class = "p_home" style="font-size: 50px;">
 <p><strong>...</strong></p>
 </div>
 <h2 class="title">My last Documents</h2>
+<div class= container_home >
 <div class="doc-home">
   <% @documents.reverse_each do |document| %>
-    <div class="mb-2">
+    <div class="mb-2 ">
       <%= link_to document_path(document), style: "text-decoration: none; color: inherit; display: block;" do %>
         <div class="card" style="width: 100%;">
-          <div class="card-body">
+          <div class="card-body-home">
             <% if document.photo.attached? %>
               <div style="display: flex; align-items: center;">
                 <%= image_tag url_for(document.photo), class: "image-doc-home", style: "margin-right: 10px;" %>
@@ -57,6 +58,7 @@
       <% end %>
     </div>
   <% end %>
+</div>
 </div>
 
 
