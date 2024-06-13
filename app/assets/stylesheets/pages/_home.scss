@@ -209,3 +209,16 @@ padding-top: 20px;
 .chat-container p {
   margin: 8px;
 }
+
+.container-doc-home{
+  max-height: 345px;
+  overflow-y: auto;
+  margin-bottom: 50px;
+  width: 400px
+}
+
+.form-example-members{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
