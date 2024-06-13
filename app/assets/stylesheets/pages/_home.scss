@@ -210,20 +210,19 @@ padding-top: 20px;
   margin: 8px;
 }
 
-.container_home {
+.doc-home{
+  max-height: 360px;
+}
+
+.container-doc-home{
   background-color: rgba(255, 255, 255, 0);
   max-height: 345px;
-  width: 410px;
   overflow-y: auto;
-  margin-left: 26px;
-  margin-bottom: 53px;
-}
+  margin-bottom: 50px;
+  margin-left: 25px;
+  width: 400px;
 
-.card-body-home {
-  max-height: 200px;
-  padding:10px;
 
-}
 
 .form-example-members {
     display: flex;
@@ -231,6 +230,4 @@ padding-top: 20px;
     gap: 8px;
 }
 
-.p_home {
-  margin: 0px;
-}
+
