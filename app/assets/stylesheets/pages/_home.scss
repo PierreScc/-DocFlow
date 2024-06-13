@@ -1,24 +1,4 @@
 // Specific CSS for your home-page
-body {
-  font-family: Arial, sans-serif;
-  background: #ffffffff;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-.container {
-  width: 100%;
-  max-width: 600px;
-  margin: 20px auto;
-  border-radius: 25px;
-  padding: 20px;
-  padding-top: 80px;
-  background-color: rgba(255, 255, 255, 0.439);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-  text-align: center;
-}
-
 #addGroupSection {
   position: fixed;
   bottom: 100px;
@@ -120,17 +100,6 @@ input[type="submit"] {
   margin-left: 1em;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
-  font-family: 'Rajdhani', sans-serif;
-  background-color: #f0f0f0;
-}
-
 
 .img img {
   width: 100%;
@@ -218,7 +187,6 @@ padding-top: 20px;
 .container-doc-home{
   overflow-y: auto;
   margin-bottom: 0px;
-  width: 400px;
   height: 315px;
 }
 
