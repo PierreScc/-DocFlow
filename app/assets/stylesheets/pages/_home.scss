@@ -149,8 +149,7 @@ h1 {
 .btn {
   display: inline-block;
   margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 15rem;
   padding: 10px 20px;
   font-size: 2rem;
   color: #fff;
@@ -173,7 +172,7 @@ h1 {
 
 
 .chat-container .message {
-  width: fit-content;
+  max-width: 70%;
   margin-bottom: 25px;
   padding: 5px;
   border-radius: 20px;
@@ -192,7 +191,12 @@ h1 {
 }
 
 .chat-container .sender {
-  display: none;
+  position: absolute;
+  top: -20px;
+  right: 20px; /* Align sender name to the right side */
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fcfcfc;
 }
 .send-message {
   width: 85%;
@@ -209,25 +213,3 @@ padding-top: 20px;
 .chat-container p {
   margin: 8px;
 }
-
-.doc-home{
-  max-height: 360px;
-}
-
-.container-doc-home{
-  background-color: rgba(255, 255, 255, 0);
-  max-height: 345px;
-  overflow-y: auto;
-  margin-bottom: 50px;
-  margin-left: 25px;
-  width: 400px;
-
-
-
-.form-example-members {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-

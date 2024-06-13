@@ -6,7 +6,7 @@
 <h2 class="title">My Groups</h2>
 <div class="groups-container">
   <div class="row home-groups">
-    <% @groups.reverse_each do |group| %>
+    <% @groups.each do |group| %>
       <%= link_to group_path(group), style: "text-decoration: none; color: inherit;", class: "group-card-caroussel" do %>
         <div class="card-group">
           <div class="card-home-doc">
