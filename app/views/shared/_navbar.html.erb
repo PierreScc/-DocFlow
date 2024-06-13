@@ -62,7 +62,7 @@
           <div class="mb-3">
             <%= f.association :group %>
           </div>
-          <div class="mb-3">
+          <div class="mb-3 d-flex align-items-center">
             <%= f.button :submit, class: 'btn btn-primary' %>
           </div>
         <% end %>
@@ -90,8 +90,8 @@
           <div class="mb-3">
             <%= f.input :category, collection: ['Family', 'Personal', 'Professional'] %>
           </div>
-          <div class="mb-3">
-            <%= f.button :submit, class: 'btn btn-primary', style: "margin-left: -10px;" %>
+          <div class="mb-3 d-flex align-items-center">
+            <%= f.button :submit, class: 'btn btn-primary' %>
           </div>
         <% end %>
       </div>

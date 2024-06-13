@@ -44,7 +44,8 @@
   <% end %>
 </div>
 
-     <div class="chat-container">
+<div data-controller="">
+  <div class="chat-container" data-home-target="chat">
     <% if @messages.count == 0 %>
       <p style="color:white">No messages yet</p>
     <% else %>
@@ -65,12 +66,14 @@
   </div>
 
   <div class="send-message">
-  <%= form_with(model: [@group, @message], local: true) do |form| %>
-    <div style="display: flex; align-items: center;">
-      <%= form.text_area :content, rows: 1, class: "form-control", placeholder: "Type here...", style: "height: 55px; border-radius: 20px; padding: 10px;" %>
-      <%= form.submit "Send", class: "send btn-primary", style: "margin-left: 10px; height: 55px; border-radius: 20px; padding: 10px 20px;" %>
-    </div>
-  <% end %>
+    <%= form_with(model: [@group, @message], local: true, data: { action: "turbo:submit-end->home#scrollDown" }) do |form| %>
+      <div style="display: flex; align-items: center;">
+        <%= form.text_area :content, rows: 1, class: "form-control", placeholder: "Type here...", style: "height: 55px; border-radius: 20px; padding: 10px;" %>
+        <%= form.submit "Send", class: "send btn-primary", style: "margin-left: 10px; height: 55px; border-radius: 20px; padding: 10px 20px;" %>
+      </div>
+    <% end %>
+  </div>
+
 </div>
 
 
