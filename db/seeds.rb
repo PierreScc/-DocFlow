@@ -133,23 +133,50 @@ UserGroup.create!(user: clement, group: group_2)
 
 puts "#{Group.count} groups created"
 
-puts "Creating documents..."
-photos = ["https://independant.io/wp-content/uploads/modele-devis-768x916.png",
-          "https://www.zervant.com/fr/file/modele-de-devis/",
-          "https://sm-devis.com/public/blog/wp-content/uploads/2019/10/exemple-de-devis-sm-devis-france.png",
-          "https://assets.intia.fr/app/uploads/2020/09/exemple_devis_prestation-service.jpg",
-          "https://templates.invoicehome.com/exemple-de-devis-fr-moderne-rouge-750px.png"]
-photos.each do |photo|
-  document = Document.new(
-    title: Faker::Book.title,
-    category: "Company"
-  )
+# puts "Creating documents..."
+# photos = ["https://independant.io/wp-content/uploads/modele-devis-768x916.png",
+#           "https://www.zervant.com/fr/file/modele-de-devis/",
+#           "https://sm-devis.com/public/blog/wp-content/uploads/2019/10/exemple-de-devis-sm-devis-france.png",
+#           "https://assets.intia.fr/app/uploads/2020/09/exemple_devis_prestation-service.jpg",
+#           "https://templates.invoicehome.com/exemple-de-devis-fr-moderne-rouge-750px.png"]
+# photos.each do |photo|
+#   document = Document.new(
+#     title: Faker::Book.title,
+#     category: "Company"
+#   )
 
-  group = Group.all.sample
-  document.group = group
-  document.user = group.users.sample
-  file = URI.open(photo)
-  document.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-  document.save!
-end
+#   group = Group.all.sample
+#   document.group = group
+#   document.user = group.users.sample
+#   file = URI.open(photo)
+#   document.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+#   document.save!
+# end
+
+
+
+photo = "https://freeinvoicebuilder.com/wp-content/uploads/2022/01/Photography-and-Film-1-564x804.jpg"
+document = Document.new(
+  title: "Invoice Material",
+  category: "Professional"
+)
+
+document.group = group
+document.user = clement
+file = URI.open(photo)
+document.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+document.save!
+
+photo = "https://www.legalplace.fr/wp-content/uploads/2020/02/contrat-de-travail-cdd-1.jpg"
+document = Document.new(
+  title: "Contract",
+  category: "Professional"
+)
+
+document.group = group
+document.user = clement
+file = URI.open(photo)
+document.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+document.save!
+
 puts "#{Document.count} documents created"
