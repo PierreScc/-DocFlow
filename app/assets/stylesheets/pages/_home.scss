@@ -173,7 +173,7 @@ h1 {
 
 
 .chat-container .message {
-  max-width: 15%;
+  max-width: 70%;
   margin-bottom: 25px;
   padding: 5px;
   border-radius: 20px;
@@ -209,4 +209,8 @@ h1 {
 
 .show.row.home-groups {
 padding-top: 20px;
+}
+
+.chat-container p {
+  margin: 8px;
 }

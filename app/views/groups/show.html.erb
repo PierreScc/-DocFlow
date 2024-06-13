@@ -23,7 +23,7 @@
   <% @documents.each do |document| %>
     <div class="mb-2 w-75">
       <%= link_to document_path(document), style: "text-decoration: none; color: inherit;", class: "group-card-caroussel w-100" do %>
-        <div class="card" style="width: 90%;">
+        <div class="card" style="width: 100%;">
           <div class="card-body">
             <% if document.photo.attached? %>
               <div style="display: flex; align-items: center;">
