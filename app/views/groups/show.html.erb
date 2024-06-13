@@ -1,5 +1,5 @@
-<div style= "display: flex; justify-content: center; font-family: Inter, sans-serif; color: white; font-size: 35px; padding-top: 10px;font-style: bold; width: 93%; margin-top: 90px;">
-<%= @group.title %>
+<div style="display: flex; justify-content: center; font-family: Inter, sans-serif; color: white; font-size: 35px; padding-top: 10px; font-style: bold; width: 93%; margin-top: 90px;">
+  <%= @group.title %>
 </div>
 <div class="d-flex flex-direction-column align-items-center justify-content-between row pt-3" style="height: 82vh; padding-bottom: 10vh; w-100%">
   <div>
@@ -14,36 +14,38 @@
       <% end %>
     </div>
     <div class="d-flex align-items-center justify-content-center">
-      <button type="button" class="button-34" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" class="button-34" data-bs-toggle="modal" data-bs-target="#exampleModal" style="padding: 8px 18px; background-color: #536EFD; color: white; border: none; border-radius: 12px;">
         Add members
       </button>
     </div>
   </div>
-<div class="show row home-groups" style="padding-left: 28px;">  <% @documents.each do |document| %>
-    <div class="mb-2 w-75">
-      <%= link_to document_path(document), style: "text-decoration: none; color: inherit;", class: "group-card-caroussel w-100" do %>
-        <div class="card" style="width: 100%;">
-          <div class="card-body">
-            <% if document.photo.attached? %>
-              <div style="display: flex; align-items: center;">
-                <%= image_tag url_for(document.photo), class: "image-doc-home", style: "margin-right: 10px;" %>
-                <div>
-                  <div class="doc-title" style="font-weight: bold; color: white;">
-                    <%= document.title %>
-                  </div>
-                  <% if document.group %>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-</div>
 
-     <div class="chat-container">
+  <div class="show row home-groups" style="padding-left: 28px;">
+    <% @documents.each do |document| %>
+      <div class="mb-2 w-75">
+        <%= link_to document_path(document), style: "text-decoration: none; color: inherit;", class: "group-card-caroussel w-100" do %>
+          <div class="card" style="width: 100%;">
+            <div class="card-body">
+              <% if document.photo.attached? %>
+                <div style="display: flex; align-items: center;">
+                  <%= image_tag url_for(document.photo), class: "image-doc-home", style: "margin-right: 10px;" %>
+                  <div>
+                    <div class="doc-title" style="font-weight: bold; color: white;">
+                      <%= document.title %>
+                    </div>
+                    <% if document.group %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="chat-container">
     <% if @messages.count == 0 %>
       <p style="color:white">No messages yet</p>
     <% else %>
@@ -64,37 +66,40 @@
   </div>
 
   <div class="send-message">
-  <%= form_with(model: [@group, @message], local: true) do |form| %>
-    <div style="display: flex; align-items: center;">
-      <%= form.text_area :content, rows: 1, class: "form-control", placeholder: "Type here...", style: "height: 55px; border-radius: 20px; padding: 10px;" %>
-      <%= form.submit "Send", class: "send btn-primary", style: "margin-left: 10px; height: 55px; border-radius: 20px; padding: 10px 20px;" %>
-    </div>
-  <% end %>
-</div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5 " id="exampleModalLabel">List Members</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <%= form_with(model: [@group, @message], local: true) do |form| %>
+      <div style="display: flex; align-items: center;">
+        <%= form.text_area :content, rows: 1, class: "form-control", placeholder: "Type here...", style: "height: 55px; border-radius: 20px; padding: 10px;" %>
+        <%= form.submit "Send", class: "send btn-primary", style: "margin-left: 10px; height: 55px; border-radius: 20px; padding: 10px 20px;" %>
       </div>
-      <form action="<%= group_user_groups_path(@group) %>" method="post" class="form-example">
-        <div class="modal-body">
-          <div class="form-example">
-            <% @users.each do |user| %>
-              <div>
-                <input type="checkbox" id="user_<%= user.id %>" name="user_id[]" value="<%= user.id %>" />
-                <label for="user_<%= user.id %>" class="username"><%= user.username %></label>
-              </div>
-            <% end %>
+    <% end %>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Members</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="border-radius: 12px;"></button>
+        </div>
+        <form action="<%= group_user_groups_path(@group) %>" method="post" class="form-example">
+          <div class="modal-body">
+            <div class="form-example">
+              <% @users.each do |user| %>
+                <div>
+                  <input type="checkbox" id="user_<%= user.id %>" name="user_id[]" value="<%= user.id %>" />
+                  <label for="user_<%= user.id %>" class="username"><%= user.username %></label>
+                </div>
+              <% end %>
+            </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="button" data-bs-dismiss="modal">Close</button>
-          <input type="submit" class="button-34" value="Add" style="padding: 8px 18px" />
-        </div>
-      </form>
+          <div class="modal-footer">
+            <button type="button" class="button" data-bs-dismiss="modal" style="background-color: #536EFD; color: white; border: none; border-radius: 12px;">Close</button>
+            <input type="submit" class="button-34" value="Add" style="padding: 8px 18px; background-color: #536EFD; color: white; border: none; border-radius: 12px;" />
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
+

@@ -8,7 +8,7 @@
     <i class="fa-regular fa-folder-open"></i>
   <% end %>
 
-  <a class="icon-button plus-btn" data-bs-toggle="modal" data-bs-target="#addOptionsModal">
+  <a class="icon-button plus-btn" data-bs-toggle="modal" data-bs-target="#<%= controller_name == 'groups' && action_name == 'show' ? 'addDocumentModal' : 'addOptionsModal' %>">
     <i class="fa-solid fa-plus"></i>
   </a>
 
@@ -63,7 +63,7 @@
             <%= f.association :group %>
           </div>
           <div class="mb-3">
-            <%= f.button :submit, class: 'btn btn-primary' %>
+            <%= f.button :submit, class: "btn btn-primary", style: "background-color: #536EFD; border-color: #536EFD; margin-left: -10px;" %>
           </div>
         <% end %>
       </div>
@@ -91,7 +91,7 @@
             <%= f.input :category, collection: ['Family', 'Personal', 'Professional'] %>
           </div>
           <div class="mb-3">
-            <%= f.button :submit, class: 'btn btn-primary', style: "margin-left: -10px;" %>
+            <%= f.button :submit, class: "btn btn-primary", style: "background-color: #536EFD; border-color: #536EFD; margin-left: -10px;" %>
           </div>
         <% end %>
       </div>
