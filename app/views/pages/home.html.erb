@@ -1,6 +1,6 @@
 
 <div class="top-bar" style="position: absolute; top: 0; right: 0;">
-  <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" style="margin-right: 20px; margin-top: 20px;" >
+  <img class="avatar-large" alt="avatar-large" src="https://ca.slack-edge.com/T02NE0241-U06TGAB5T7C-7927c68befc2-512" style="margin-right: 20px; margin-top: 20px;" >
 </div>
 
 <h2 class="title">My Groups</h2>
@@ -27,16 +27,16 @@
   </div>
 </div>
 
-<div style="font-size: 50px;">
+<div class = "p_home" style="font-size: 50px;">
 <p><strong>...</strong></p>
 </div>
 <h2 class="title">My last Documents</h2>
 <div class="container-doc-home">
   <% @documents.reverse_each do |document| %>
-    <div class="mb-2">
+    <div class="mb-2 ">
       <%= link_to document_path(document), style: "text-decoration: none; color: inherit; display: block;" do %>
         <div class="card" style="width: 100%;">
-          <div class="card-body">
+          <div class="card-body-home">
             <% if document.photo.attached? %>
               <div style="display: flex; align-items: center;">
                 <%= image_tag url_for(document.photo), class: "image-doc-home", style: "margin-right: 10px;" %>
@@ -58,6 +58,8 @@
     </div>
   <% end %>
 </div>
+</div>
+
 
 
 <div class="modal fade" id="addGroupModal" tabindex="-1" aria-labelledby="addGroupModalLabel" aria-hidden="true">
