@@ -19,8 +19,7 @@
       </button>
     </div>
   </div>
-<div class="show row home-groups" style="padding-left: 28px;">
-  <% @documents.each do |document| %>
+<div class="show row home-groups" style="padding-left: 28px;">  <% @documents.each do |document| %>
     <div class="mb-2 w-75">
       <%= link_to document_path(document), style: "text-decoration: none; color: inherit;", class: "group-card-caroussel w-100" do %>
         <div class="card" style="width: 100%;">
@@ -73,13 +72,11 @@
   <% end %>
 </div>
 
-
-
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Members</h1>
+        <h1 class="modal-title fs-5 " id="exampleModalLabel">List Members</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form action="<%= group_user_groups_path(@group) %>" method="post" class="form-example">
