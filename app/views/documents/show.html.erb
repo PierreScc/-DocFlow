@@ -1,11 +1,20 @@
 <!-- app/views/documents/show.html.erb -->
-<h1 class="text-center my-6" style="font-size: 2.5rem; color: #d4b6d3; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; position: sticky; top: 0; background-color: rgba(238, 231, 237, 0); z-index: 1020;">
-   Details
-</h1>
-
-<div class="container" style="max-width: 400px; margin: 41px auto; background-color: #EEE7ED; border-radius: 25px; padding: 20px; height: calc(72vh - 80px); overflow: hidden; position: relative;">
+<div class="container" style="max-width: 400px; margin: 41px auto; border-radius: 25px; padding: 20px; height: calc(72vh - 80px); overflow-y: auto; position: relative;">
   <% if @document.photo.present? && @document.photo.key.present? %>
-    <div class="h-40 mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(@document.photo.key, height: 300, crop: :fill) %>'); height: 20vh; border-radius: 25px; background-size: cover; background-position: center;">
+    <div class="h-40 mb-4" style="position: relative; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.82)), url('<%= cl_image_path(@document.photo.key, height: 300, crop: :fill) %>'); height: 20vh; border-radius: 25px; background-size: cover; background-position: center;">
+      <div style="position: absolute; top: 10px; right: 10px;">
+        <% if @document.user.photo.attached? %>
+          <%= image_tag url_for(@document.user.photo), class: 'img-fluid rounded-circle', style: 'width: 50px; height: 50px; border: 2px solid #FDD853;' %>
+        <% else %>
+          <span><%= @document.user.username %></span>
+        <% end %>
+      </div>
+      <div style="position: absolute; bottom: 40px; left: 20px; color: white; font-weight: bold; font-size: 1.5rem;">
+        <%= @document.title %>
+      </div>
+      <div style="position: absolute; bottom: 10px; left: 20px; color: white; font-weight: bold; font-size: 1.2rem;">
+        Group: <%= @document.group.title %>
+      </div>
     </div>
   <% else %>
     <div class="h-40 mb-4 d-flex align-items-center justify-content-center" style="background-color: grey; height: 20vh; border-radius: 25px;">
@@ -15,27 +24,39 @@
 
   <div class="row">
     <div class="col-12">
-      <h3 style="font-weight: bold; font-size: 1.5rem; color: #6a1b9a; margin-bottom: 25px;"><%= @document.title %></h3>
-      <p><strong>User:</strong> <%= @document.user.username %></p>
-      <p><strong>Group:</strong> <%= @document.group.title %></p>
-      <% if @document.assignements.any? %>
-        <h4 style="font-weight: bold; font-size: 1.2rem; color: #6a1b9a; margin-top: 20px;">Assignments</h4>
-        <ul class="list-group mb-3">
-          <% @document.assignements.each do |assignement| %>
-            <li class="list-group-item">
-              Assigned to: <%= assignement.user.username %> - Comment: <%= assignement.comment %>
-            </li>
-          <% end %>
-        </ul>
-      <% end %>
-      <div class="fixed-bottom-icons" style="display: flex; justify-content: center;">
-        <%= link_to group_path(@document.group), class: 'btn btn-outline-primary btn-sm mx-2', style: 'border-radius: 12px; padding: 6px 12px; color: #6a1b9a; border-color: #6a1b9a;' do %>
+      <div class="d-flex justify-content-center mb-4">
+        <%= link_to group_path(@document.group), class: 'btn btn-outline-primary btn-sm mx-2', style: 'border-radius: 12px; padding: 6px 12px; color: white; border-color: white;' do %>
           <i class="fa-solid fa-arrow-left"></i>
         <% end %>
-        <%= link_to 'Assign', new_document_assignement_path(@document), class: 'btn btn-outline-primary btn-sm mx-2', style: 'border-radius: 12px; padding: 6px 12px; color: #6a1b9a; border-color: #6a1b9a;' %>
-        <button type="button" class="btn btn-outline-primary btn-sm mx-2" style="border-radius: 12px; padding: 6px 12px; color: #6a1b9a; border-color: #6a1b9a;" data-bs-toggle="modal" data-bs-target="#viewDocumentModal">
+        <%= link_to 'Assign', new_document_assignement_path(@document), class: 'btn btn-outline-primary btn-sm mx-2', style: 'border-radius: 12px; padding: 6px 12px; color: white; border-color: white;' %>
+        <button type="button" class="btn btn-outline-primary btn-sm mx-2" style="border-radius: 12px; padding: 6px 12px; color: white; border-color: white;" data-bs-toggle="modal" data-bs-target="#viewDocumentModal">
           <i class="fa-solid fa-arrows-to-eye"></i>
         </button>
+      </div>
+
+      <div class="d-flex align-items-center mb-2">
+        <strong style="margin-right: 10px;"></strong>
+      </div>
+
+      <div class="d-flex flex-column mb-2;">
+        <% if @document.assignements.any? %>
+          <% @document.assignements.each do |assignement| %>
+            <div class="d-flex flex-column mt-2">
+              <div class="d-flex align-items-center">
+                <strong style="margin-right: 10px; color: white; font-size: 1.3rem;">TODO :</strong>
+                <span style="color: white; font-size: 1.1rem;"><%= assignement.comment %></span>
+              </div>
+              <div class="d-flex align-items-center">
+                <strong style="margin-right: 10px; color: #FDD853; font-size: 1.3rem;">Assigned to :</strong>
+                <% if assignement.user.photo.attached? %>
+                  <%= image_tag url_for(assignement.user.photo), class: 'img-fluid rounded-circle', style: 'width: 30px; height: 30px; border: 2px solid #FDD853;' %>
+                <% else %>
+                  <span style="color: white; font-size: 1.1rem;"><%= assignement.user.username %></span>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -59,4 +80,3 @@
     </div>
   </div>
 </div>
-
