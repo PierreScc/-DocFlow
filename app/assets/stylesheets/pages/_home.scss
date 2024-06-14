@@ -136,7 +136,7 @@ h1 {
   border: 3px solid #5e5def75;
   border-radius: 20px;
   overflow-y: auto;
-  max-height: 180px;
+  height: 180px;
 }
 
 
@@ -185,9 +185,9 @@ padding-top: 20px;
 }
 
 .container-doc-home{
-  overflow-y: auto;
+ /*  overflow-y: auto;
   margin-bottom: 0px;
-  height: 315px;
+  height: 315px; */
 }
 
 .form-example-members{
